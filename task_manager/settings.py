@@ -84,8 +84,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-db_from_env = dj_database_url.config()
+CONN_MAX_AGE = 500
+db_from_env = dj_database_url.config(conn_max_age=CONN_MAX_AGE)
 DATABASES['default'].update(db_from_env)
 
 
