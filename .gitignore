@@ -1,0 +1,25 @@
+#.gitignore
+
+#virtualenv
+/.venv/*
+/.idea/*
+venv
+
+#pycache folders
+__pycache__
+
+#dist folders
+dist
+
+#pytest
+.pytest_cache
+
+#coverage
+.coverage
+coverage.xml
+
+#enviroment
+.env
+
+#db
+db.sqlite3
