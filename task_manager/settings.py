@@ -29,6 +29,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'test_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = str(os.getenv('DEBUG')) == "1"  # "1" == True
+
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.herokuapp.com', '[::1]']
 
 
@@ -84,6 +85,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 CONN_MAX_AGE = 500
 db_from_env = dj_database_url.config(conn_max_age=CONN_MAX_AGE)
 DATABASES['default'].update(db_from_env)
