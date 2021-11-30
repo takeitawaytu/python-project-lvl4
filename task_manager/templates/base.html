@@ -1,0 +1,68 @@
+{% load bootstrap4 i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<!doctype html>
+<html lang="ru-ru">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{{ BASE_APP_NAME }}</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/font/octicons.min.css">
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">{{ BASE_APP_NAME }}</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarToggleExternalContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/users/">{{ BASE_USERS }}</a>
+          </li>
+
+        </ul>
+        <ul class="navbar-nav">
+
+            <li class="nav-item">
+              <a class="nav-link" href="/login/">{{ BASE_LOGIN }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/create/">{{ BASE_SIGNUP }}</a>
+            </li>
+
+        </ul>
+      </div>
+    </nav>
+    <div class="container wrapper flex-grow-1">
+
+
+
+      <h1 class="my-4">
+
+
+      </h1>
+
+<h1 class="my-4"></h1>
+<div class="card">
+  <div class="card-body p-5 bg-light">
+    <div class="display-4">{% translate 'Привет от Хекслета!' %}</div>
+    <p class="lead">{% translate 'Практические курсы по программированию' %}</p>
+    <hr>
+    <a class="btn btn-dark btn-lg" href="https://ru.hexlet.io">{% translate 'Узнать больше' %}</a>
+  </div>
+</div>
+
+    </div>
+    <footer>
+      <div class="container my-5 pt-4 border-top">
+        <a target="_blank" href="https://ru.hexlet.io">Hexlet</a>
+      </div>
+    </footer>
+  </body>
+</html>

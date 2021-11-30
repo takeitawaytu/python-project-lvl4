@@ -4,6 +4,10 @@ version = "0.1.0"
 description = ""
 authors = ["takeitawaytu <takeitawaytu@gmail.com>"]
 
+packages = [
+  { include = "task_manager" },
+]
+
 [tool.poetry.dependencies]
 python = "^3.8"
 Django = "^3.2.9"
@@ -12,6 +16,8 @@ python-dotenv = "^0.19.2"
 dj-database-url = "^0.5.0"
 whitenoise = "^5.3.0"
 psycopg2 = "^2.9.2"
+django-bootstrap4 = "^21.1"
+flake8 = "^4.0.1"
 
 [tool.poetry.dev-dependencies]
 coverage = "^6.1.2"

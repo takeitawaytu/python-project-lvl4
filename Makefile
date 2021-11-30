@@ -23,3 +23,9 @@ test:
 
 lint:
 	poetry run flake8 task_manager --exclude=task_manager/settings.py
+
+i18n:
+	poetry run django-admin makemessages -l ru
+	poetry run django-admin makemessages -l en
+	poetry run django-admin.py compilemessages -l ru
+	poetry run django-admin.py compilemessages -l en
