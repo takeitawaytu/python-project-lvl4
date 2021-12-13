@@ -21,11 +21,18 @@ requirements: poetry.lock
 test:
 	poetry run python manage.py test
 
-lint:
-	poetry run flake8 task_manager --exclude=task_manager/settings.py
+test-coverage:
+	poetry run coverage run --source='task_manager' manage.py test
+	poetry run coverage xml
+	poetry run coverage report
 
-i18n:
+lint:
+	poetry run flake8 task_manager --exclude=task_manager/settings.py,task_manager\users\migrations
+
+i18n_mm:
 	poetry run django-admin makemessages -l ru
 	poetry run django-admin makemessages -l en
+
+i18n_compile
 	poetry run django-admin.py compilemessages -l ru
 	poetry run django-admin.py compilemessages -l en

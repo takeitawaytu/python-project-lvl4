@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+{% block title %}{% translate 'Users' %}{% endblock %}
+
+{% block breadcrumb %}
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page"><a href="/">{% translate 'BreadcrumbHome' %}</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'users' %}">{% translate 'Users' %}</a></li>
+  </ol>
+{% endblock breadcrumb %}
+{% block content %}
+    <h2 class="mt-5">{% translate 'Users' %}</h2>
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">{% translate 'UserID' %}</th>
+          <th scope="col">{% translate 'UserName' %}</th>
+          <th scope="col">{% translate 'UserFullName' %}</th>
+          <th scope="col">{% translate 'UserDateReg' %}</th>
+          <th scope="col">{% translate 'UserActions' %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users_list %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td><a href="{% url 'update_user' user.id %}">{{ user.username }}</a></td>
+                <td>{{ user.get_full_name }}</td>
+                <td>{{ user.date_joined|date:'d.m.Y H:i' }}</td>
+                <td>
+                    <a href="{% url 'update_user' user.id %}"><button class="btn btn-outline-info btn-sm mt-1">{% translate 'UserChange' %}</button></a>
+                    <a href="{% url 'delete_user' user.id %}"><button class="btn btn-outline-danger btn-sm mt-1">{% translate 'UserDelete' %}</button></a>
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="5">{% translate 'UserNotFound' %}</td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a class="mr-2" href="?page=1">{% translate 'PaginatonFirst' %}</a>
+                <a class="mr-2" href="?page={{ page_obj.previous_page_number }}">{% translate 'PaginatonPrevious' %}</a>
+            {% endif %}
+            <span class="current">
+                {% translate 'PaginatonPage' %} {{ page_obj.number }} {% translate 'PaginatonPageIS' %} {{ page_obj.paginator.num_pages }}.
+            </span>
+            {% if page_obj.has_next %}
+                <a class="ml-2" href="?page={{ page_obj.next_page_number }}">{% translate 'PaginatonNext' %}</a>
+                <a class="ml-2" href="?page={{ page_obj.paginator.num_pages }}">{% translate 'PaginatonLast' %}</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock content %}

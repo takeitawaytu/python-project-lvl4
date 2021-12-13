@@ -1,0 +1,38 @@
+{
+    "user":{
+        "username": "test_username",
+        "password": "aqdvd23rd"
+    },
+    "user2":{
+        "username": "test_username2",
+        "password": "aqdvd23rd2"
+    },
+    "user_insert": {
+        "first_name": "user_insert first name",
+        "last_name": "user_insert last name",
+        "username": "inserted_username",
+        "password1": "42IsCorrectAnswer",
+        "password2": "42IsCorrectAnswer"
+    },
+    "user_update": {
+        "first_name": "user_update first name",
+        "last_name": "user_update last name",
+        "username": "updated_username",
+        "password1": "42IsCorrectAnswer",
+        "password2": "42IsCorrectAnswer"
+    },
+    "invalid_form":{
+        "first_name": "invalid first name",
+        "last_name": "invalid last name",
+        "username": "",
+        "password1": "",
+        "password2": ""
+    },
+    "valid_form":{
+        "first_name": "valid first name",
+        "last_name": "valid last name",
+        "username": "updated_username",
+        "password1": "42IsCorrectAnswer",
+        "password2": "42IsCorrectAnswer"
+    }
+}

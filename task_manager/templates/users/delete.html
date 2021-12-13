@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% load bootstrap4 i18n %}
+
+{% block title %}{% translate 'DeleteUsers' %}{% endblock %}
+
+{% block breadcrumb %}
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page"><a href="/">{% translate 'BreadcrumbHome' %}</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'users' %}">{% translate 'Users' %}</a></li>
+    <li class="breadcrumb-item" aria-current="page">{% translate 'DeleteUsers' %}</li>
+  </ol>
+{% endblock breadcrumb %}
+
+{% block content %}
+    <div class="container col-md-7 mt-5">
+        <h2>{% translate 'DeleteUsers' %}</h2>
+        <div class="mt-5">{% translate 'AreYouSureToDeleteUser' %} <strong>{{ object }}?</strong></div>
+        <div style="display: inline-block">
+            <form class="form" method="post">
+                {% csrf_token %}
+                <input class="btn btn-outline-danger mt-3" type="submit" value="{% translate 'DeleteConfirm' %}">
+            </form>
+        </div>
+        <div style="display: inline-block">
+            <a class="btn btn-outline-info mt-3" href="{% url 'users' %}">{% translate 'Cancel' %}</a>
+        </div>
+    </div>
+{% endblock %}

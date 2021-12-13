@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% load bootstrap4 i18n %}
+
+{% block title %}{% translate 'LoginUsers' %}{% endblock %}
+
+{% block breadcrumb %}
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page">{% translate 'LoginUsers' %}</li>
+  </ol>
+{% endblock breadcrumb %}
+
+{% block content %}
+    <div class="container col-md-7 mt-5">
+        <h2>{% translate 'LoginUsers' %}</h2>
+        <form class="form" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+                <button type="submit" class="btn btn-outline-primary">{% translate 'Login' %}</button>
+            {% endbuttons %}
+        </form>
+    </div>
+{% endblock %}
