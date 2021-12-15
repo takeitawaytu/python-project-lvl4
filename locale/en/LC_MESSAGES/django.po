@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 19:06+0300\n"
+"POT-Creation-Date: 2021-12-14 18:42+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,184 +18,308 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: task_manager/settings.py:179
-msgid "Russian"
-msgstr ""
-
-#: task_manager/settings.py:180
-msgid "English"
-msgstr ""
-
-#: task_manager/templates/home.html:4 task_manager/templates/layout.html:15
-msgid "NameProject"
-msgstr "Task Manager"
-
-#: task_manager/templates/home.html:8
-msgid "Welcome"
-msgstr "Welcome to task manager!"
-
-#: task_manager/templates/layout.html:22
-#: task_manager/templates/users/create.html:9
-#: task_manager/templates/users/delete.html:9
-#: task_manager/templates/users/index.html:3
-#: task_manager/templates/users/index.html:8
-#: task_manager/templates/users/index.html:12
-#: task_manager/templates/users/update.html:9 task_manager/users/models.py:12
-msgid "Users"
-msgstr "Users"
-
-#: task_manager/templates/layout.html:28
-msgid "Logout"
-msgstr "Logout"
-
-#: task_manager/templates/layout.html:32
-#: task_manager/templates/users/login.html:19
-msgid "Login"
-msgstr "Login"
-
-#: task_manager/templates/layout.html:35
-msgid "Registration"
-msgstr "Registration"
-
-#: task_manager/templates/users/create.html:4
-#: task_manager/templates/users/create.html:10
-#: task_manager/templates/users/create.html:16
-msgid "CreateUsers"
-msgstr "Create users"
-
-#: task_manager/templates/users/create.html:8
-#: task_manager/templates/users/delete.html:8
-#: task_manager/templates/users/index.html:7
-#: task_manager/templates/users/update.html:8
-msgid "BreadcrumbHome"
-msgstr "Home"
-
-#: task_manager/templates/users/create.html:21
-msgid "CreateUser"
-msgstr "Create"
-
-#: task_manager/templates/users/delete.html:4
-#: task_manager/templates/users/delete.html:10
-#: task_manager/templates/users/delete.html:16
-msgid "DeleteUsers"
-msgstr "Delete users"
-
-#: task_manager/templates/users/delete.html:17
-msgid "AreYouSureToDeleteUser"
-msgstr "Are you sure to delete user?"
-
-#: task_manager/templates/users/delete.html:21
-msgid "DeleteConfirm"
-msgstr "Delete"
-
-#: task_manager/templates/users/delete.html:25
-msgid "Cancel"
-msgstr "Cancel"
-
-#: task_manager/templates/users/index.html:16
-msgid "UserID"
-msgstr "ID"
-
-#: task_manager/templates/users/index.html:17
-msgid "UserName"
-msgstr "Name"
-
-#: task_manager/templates/users/index.html:18
-msgid "UserFullName"
-msgstr "Full name"
-
-#: task_manager/templates/users/index.html:19
-msgid "UserDateReg"
-msgstr "Date registration"
-
-#: task_manager/templates/users/index.html:20
-msgid "UserActions"
-msgstr "Actions"
-
-#: task_manager/templates/users/index.html:31
-msgid "UserChange"
-msgstr "Name"
-
-#: task_manager/templates/users/index.html:32
-msgid "UserDelete"
-msgstr "Delete"
-
-#: task_manager/templates/users/index.html:37
-msgid "UserNotFound"
-msgstr "Not users yet"
-
-#: task_manager/templates/users/index.html:46
-msgid "PaginatonFirst"
-msgstr "&laquo;&laquo;&laquo;"
-
-#: task_manager/templates/users/index.html:47
-msgid "PaginatonPrevious"
-msgstr "prev."
-
-#: task_manager/templates/users/index.html:50
-msgid "PaginatonPage"
-msgstr "page"
-
-#: task_manager/templates/users/index.html:50
-msgid "PaginatonPageIS"
-msgstr "of"
-
-#: task_manager/templates/users/index.html:53
-msgid "PaginatonNext"
-msgstr "next"
-
-#: task_manager/templates/users/index.html:54
-msgid "PaginatonLast"
-msgstr "&raquo;&raquo;&raquo;"
-
-#: task_manager/templates/users/login.html:4
-#: task_manager/templates/users/login.html:8
-#: task_manager/templates/users/login.html:14
-msgid "LoginUsers"
-msgstr "Login users"
-
-#: task_manager/templates/users/update.html:4
-#: task_manager/templates/users/update.html:10
-#: task_manager/templates/users/update.html:16
-msgid "UpdateUsers"
-msgstr "Update users"
-
-#: task_manager/templates/users/update.html:21
-msgid "UpdateUser"
-msgstr "Update"
-
-#: task_manager/users/mixins.py:48
+#: .\task_manager\statuses\mixins.py:24 .\task_manager\users\mixins.py:48
 msgid "UserNotAuthentication"
 msgstr "User is not authenticated!"
 
-#: task_manager/users/mixins.py:51
+#: .\task_manager\statuses\models.py:12
+#: .\task_manager\templates\statuses\index.html:18
+msgid "StatusName"
+msgstr "Name"
+
+#: .\task_manager\statuses\models.py:28
+msgid "Status"
+msgstr "Status"
+
+#: .\task_manager\statuses\models.py:29 .\task_manager\templates\layout.html:26
+#: .\task_manager\templates\statuses\create.html:9
+#: .\task_manager\templates\statuses\delete.html:9
+#: .\task_manager\templates\statuses\index.html:3
+#: .\task_manager\templates\statuses\index.html:8
+#: .\task_manager\templates\statuses\index.html:12
+#: .\task_manager\templates\statuses\update.html:9
+msgid "Statuses"
+msgstr "Statuses"
+
+#: .\task_manager\statuses\views.py:32
+#, fuzzy
+#| msgid "SuccessCreateUser"
+msgid "SuccessCreateStatus"
+msgstr "User successfully created!"
+
+#: .\task_manager\statuses\views.py:47
+#, fuzzy
+#| msgid "SuccessUpdateUser"
+msgid "SuccessUpdateStatus"
+msgstr "User successfully updated!"
+
+#: .\task_manager\statuses\views.py:60
+#, fuzzy
+#| msgid "SuccessDeleteUser"
+msgid "SuccessDeleteStatus"
+msgstr "User successfully deleted!"
+
+#: .\task_manager\templates\home.html:4 .\task_manager\templates\layout.html:14
+msgid "NameProject"
+msgstr "Task Manager"
+
+#: .\task_manager\templates\home.html:8
+msgid "Welcome"
+msgstr "Welcome to task manager!"
+
+#: .\task_manager\templates\layout.html:21
+#: .\task_manager\templates\users\create.html:9
+#: .\task_manager\templates\users\delete.html:9
+#: .\task_manager\templates\users\index.html:3
+#: .\task_manager\templates\users\index.html:8
+#: .\task_manager\templates\users\index.html:12
+#: .\task_manager\templates\users\update.html:9
+#: .\task_manager\users\models.py:12
+msgid "Users"
+msgstr "Users"
+
+#: .\task_manager\templates\layout.html:34
+msgid "Logout"
+msgstr "Logout"
+
+#: .\task_manager\templates\layout.html:38
+#: .\task_manager\templates\users\login.html:19
+msgid "Login"
+msgstr "Login"
+
+#: .\task_manager\templates\layout.html:41
+msgid "Registration"
+msgstr "Registration"
+
+#: .\task_manager\templates\statuses\create.html:4
+#: .\task_manager\templates\statuses\create.html:10
+#: .\task_manager\templates\statuses\create.html:16
+#, fuzzy
+#| msgid "CreateUsers"
+msgid "CreateStatuses"
+msgstr "Create status"
+
+#: .\task_manager\templates\statuses\create.html:8
+#: .\task_manager\templates\statuses\delete.html:8
+#: .\task_manager\templates\statuses\index.html:7
+#: .\task_manager\templates\statuses\update.html:8
+#: .\task_manager\templates\users\create.html:8
+#: .\task_manager\templates\users\delete.html:8
+#: .\task_manager\templates\users\index.html:7
+#: .\task_manager\templates\users\update.html:8
+msgid "BreadcrumbHome"
+msgstr "Home"
+
+#: .\task_manager\templates\statuses\create.html:21
+#, fuzzy
+#| msgid "CreateUser"
+msgid "CreateStatus"
+msgstr "Create"
+
+#: .\task_manager\templates\statuses\delete.html:4
+#: .\task_manager\templates\statuses\delete.html:10
+#: .\task_manager\templates\statuses\delete.html:16
+#, fuzzy
+#| msgid "DeleteUsers"
+msgid "DeleteStatuses"
+msgstr "Delete status"
+
+#: .\task_manager\templates\statuses\delete.html:17
+#, fuzzy
+#| msgid "AreYouSureToDeleteUser"
+msgid "AreYouSureToDeleteStatus"
+msgstr "Are you sure to delete status"
+
+#: .\task_manager\templates\statuses\delete.html:21
+#: .\task_manager\templates\users\delete.html:21
+msgid "DeleteConfirm"
+msgstr "Delete"
+
+#: .\task_manager\templates\statuses\delete.html:25
+#: .\task_manager\templates\users\delete.html:25
+msgid "Cancel"
+msgstr "Cancel"
+
+#: .\task_manager\templates\statuses\index.html:13
+#, fuzzy
+#| msgid "SuccessCreateUser"
+msgid "StatusCreate"
+msgstr "Status successfully created!"
+
+#: .\task_manager\templates\statuses\index.html:17
+msgid "StatusID"
+msgstr "ID"
+
+#: .\task_manager\templates\statuses\index.html:19
+#, fuzzy
+#| msgid "UserDateReg"
+msgid "StatusDateReg"
+msgstr "Date registration"
+
+#: .\task_manager\templates\statuses\index.html:20
+#, fuzzy
+#| msgid "UserActions"
+msgid "StatusActions"
+msgstr "Actions"
+
+#: .\task_manager\templates\statuses\index.html:30
+#, fuzzy
+#| msgid "UserChange"
+msgid "StatusChange"
+msgstr "Change"
+
+#: .\task_manager\templates\statuses\index.html:31
+#, fuzzy
+#| msgid "UserDelete"
+msgid "StatusDelete"
+msgstr "Delete"
+
+#: .\task_manager\templates\statuses\index.html:36
+#, fuzzy
+#| msgid "UserNotFound"
+msgid "StatusesNotFound"
+msgstr "Not statuses yet"
+
+#: .\task_manager\templates\statuses\index.html:45
+#: .\task_manager\templates\users\index.html:46
+msgid "PaginatonFirst"
+msgstr "&laquo;&laquo;&laquo;"
+
+#: .\task_manager\templates\statuses\index.html:46
+#: .\task_manager\templates\users\index.html:47
+msgid "PaginatonPrevious"
+msgstr "prev."
+
+#: .\task_manager\templates\statuses\index.html:49
+#: .\task_manager\templates\users\index.html:50
+msgid "PaginatonPage"
+msgstr "page"
+
+#: .\task_manager\templates\statuses\index.html:49
+#: .\task_manager\templates\users\index.html:50
+msgid "PaginatonPageIS"
+msgstr "of"
+
+#: .\task_manager\templates\statuses\index.html:52
+#: .\task_manager\templates\users\index.html:53
+msgid "PaginatonNext"
+msgstr "next"
+
+#: .\task_manager\templates\statuses\index.html:53
+#: .\task_manager\templates\users\index.html:54
+msgid "PaginatonLast"
+msgstr "&raquo;&raquo;&raquo;"
+
+#: .\task_manager\templates\statuses\update.html:4
+#: .\task_manager\templates\statuses\update.html:10
+#: .\task_manager\templates\statuses\update.html:16
+#, fuzzy
+#| msgid "UpdateUsers"
+msgid "UpdateStatuses"
+msgstr "Update status"
+
+#: .\task_manager\templates\statuses\update.html:21
+#, fuzzy
+#| msgid "UpdateUser"
+msgid "UpdateStatus"
+msgstr "Update"
+
+#: .\task_manager\templates\users\create.html:4
+#: .\task_manager\templates\users\create.html:10
+#: .\task_manager\templates\users\create.html:16
+msgid "CreateUsers"
+msgstr "Create users"
+
+#: .\task_manager\templates\users\create.html:21
+msgid "CreateUser"
+msgstr "Create"
+
+#: .\task_manager\templates\users\delete.html:4
+#: .\task_manager\templates\users\delete.html:10
+#: .\task_manager\templates\users\delete.html:16
+msgid "DeleteUsers"
+msgstr "Delete users"
+
+#: .\task_manager\templates\users\delete.html:17
+msgid "AreYouSureToDeleteUser"
+msgstr "Are you sure to delete user"
+
+#: .\task_manager\templates\users\index.html:16
+msgid "UserID"
+msgstr "ID"
+
+#: .\task_manager\templates\users\index.html:17
+msgid "UserName"
+msgstr "Name"
+
+#: .\task_manager\templates\users\index.html:18
+msgid "UserFullName"
+msgstr "Full name"
+
+#: .\task_manager\templates\users\index.html:19
+msgid "UserDateReg"
+msgstr "Date registration"
+
+#: .\task_manager\templates\users\index.html:20
+msgid "UserActions"
+msgstr "Actions"
+
+#: .\task_manager\templates\users\index.html:31
+msgid "UserChange"
+msgstr "Change"
+
+#: .\task_manager\templates\users\index.html:32
+msgid "UserDelete"
+msgstr "Delete"
+
+#: .\task_manager\templates\users\index.html:37
+msgid "UserNotFound"
+msgstr "Not users yet"
+
+#: .\task_manager\templates\users\login.html:4
+#: .\task_manager\templates\users\login.html:8
+#: .\task_manager\templates\users\login.html:14
+msgid "LoginUsers"
+msgstr "Login users"
+
+#: .\task_manager\templates\users\update.html:4
+#: .\task_manager\templates\users\update.html:10
+#: .\task_manager\templates\users\update.html:16
+msgid "UpdateUsers"
+msgstr "Update users"
+
+#: .\task_manager\templates\users\update.html:21
+msgid "UpdateUser"
+msgstr "Update"
+
+#: .\task_manager\users\mixins.py:52
 msgid "UserNotHaveRights"
 msgstr "The user has no rights to this action!"
 
-#: task_manager/users/models.py:11
+#: .\task_manager\users\models.py:11
 msgid "User"
 msgstr "User"
 
-#: task_manager/users/views.py:30
+#: .\task_manager\users\views.py:31
 msgid "SuccessCreateUser"
 msgstr "User successfully created!"
 
-#: task_manager/users/views.py:45
+#: .\task_manager\users\views.py:47
 msgid "SuccessUpdateUser"
 msgstr "User successfully updated!"
 
-#: task_manager/users/views.py:58
+#: .\task_manager\users\views.py:61
 msgid "SuccessDeleteUser"
 msgstr "User successfully deleted!"
 
-#: task_manager/users/views.py:65
+#: .\task_manager\users\views.py:68
 msgid "SuccessLoginUser"
 msgstr "User successfully login!"
 
-#: task_manager/users/views.py:80
+#: .\task_manager\users\views.py:83
 msgid "SuccessLogoutUser"
 msgstr "User successfully logout!"
 
-#: task_manager/views.py:15
+#: .\task_manager\views.py:15
 msgid "TaskManager"
 msgstr "Task manager"

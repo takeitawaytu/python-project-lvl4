@@ -3,6 +3,7 @@ from typing import Any
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
@@ -33,6 +34,7 @@ class UserCreateView(SuccessMessageMixin, CreateView):
 
 class UserUpdateView(
     CheckUserRightsTestMixin,
+    UserPassesTestMixin,
     SuccessMessageMixin,
     UpdateView,
 ):
@@ -47,6 +49,7 @@ class UserUpdateView(
 
 class UserDeleteView(
     CheckUserRightsTestMixin,
+    UserPassesTestMixin,
     SuccessMessageMixin,
     DeleteView,
 ):

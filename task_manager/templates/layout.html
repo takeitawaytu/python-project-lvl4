@@ -1,58 +1,64 @@
 {% load bootstrap4 i18n %}
-{% get_current_language as LANGUAGE %}
-
+{% get_current_language as LANGUAGE_CODE %}
 <!doctype html>
-<html lang={{ LANGUAGE }}>
-  <head>
+<html lang={{ LANGUAGE_CODE }}>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}{{ BASE_APP_NAME }}{% endblock title %}</title>
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
-  </head>
-  <body class="d-flex flex-column min-vh-100">
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark rounded">
-          <a class="navbar-brand" href="/">{% translate 'NameProject' %}</a>
-          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarToggleExternalContent">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
+</head>
+<body class="d-flex flex-column min-vh-100">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark rounded">
+    <a class="navbar-brand" href="/">{% translate 'NameProject' %}</a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarToggleExternalContent">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
                 <a class="nav-link" href="{% url 'users' %}">{% translate 'Users' %}</a>
-              </li>
-            </ul>
-            <ul class="navbar-nav">
-                {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a href="{% url 'logout' %}" class="nav-link">{% translate 'Logout' %}</a>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a href="{% url 'login' %}" class="nav-link">{% translate 'Login' %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'create_user' %}" class="nav-link">{% translate 'Registration' %}</a>
-                    </li>
-                {% endif %}
-            </ul>
-          </div>
-        </nav>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
 
-        <div class="container wrapper flex-grow-1 col-md-8 mt-5">
-            <nav aria-label="breadcrumb">
-              {% block breadcrumb %}
-              {% endblock breadcrumb %}
-            </nav>
-            {% bootstrap_messages %}
-            {% block content %}
-            {% endblock %}
-        </div>
+                <a class="nav-link" href="{% url 'statuses' %}">{% translate 'Statuses' %}</a>
 
-    <footer>
-      <div class="container my-5 pt-4 border-top">
+            </li>
+            {% endif %}
+        </ul>
+        <ul class="navbar-nav">
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a href="{% url 'logout' %}" class="nav-link">{% translate 'Logout' %}</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a href="{% url 'login' %}" class="nav-link">{% translate 'Login' %}</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'create_user' %}" class="nav-link">{% translate 'Registration' %}</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+<div class="container wrapper flex-grow-1 col-md-8 mt-5">
+    <nav aria-label="breadcrumb">
+        {% block breadcrumb %}
+        {% endblock breadcrumb %}
+    </nav>
+    {% bootstrap_messages %}
+    {% block content %}
+    {% endblock %}
+</div>
+
+<footer>
+    <div class="container my-5 pt-4 border-top">
         <a target="_blank" href="https://ru.hexlet.io">Hexlet</a>
-      </div>
-    </footer>
-  </body>
+    </div>
+</footer>
+</body>
 </html>

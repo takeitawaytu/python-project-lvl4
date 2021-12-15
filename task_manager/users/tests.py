@@ -1,9 +1,10 @@
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ObjectDoesNotExist
+from django.http.response import HttpResponseBase
 from django.test import TestCase
 from django.urls import reverse
 from task_manager.users.forms import CustomUserCreationForm
-from task_manager.utils import load_jsonfile_from_fixture
+from task_manager.utils import load_file_from_fixture
 
 
 class TestModelCase(TestCase):
@@ -47,27 +48,27 @@ class TestListViewCase(TestCase):
 
     def test_view_url_exists_at_desired_location(self):
         response = self.client.get('/users/')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HttpResponseBase.status_code)
 
     def test_view_url_accessible_by_name(self):
         response = self.client.get(reverse('users'))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HttpResponseBase.status_code)
 
     def test_view_uses_correct_template(self):
         response = self.client.get(reverse('users'))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HttpResponseBase.status_code)
         self.assertTemplateUsed(response, 'users/index.html')
 
     def test_pagination_is_ten(self):
         response = self.client.get(reverse('users'))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HttpResponseBase.status_code)
         self.assertTrue('is_paginated' in response.context)
         self.assertTrue(response.context['is_paginated'])
         self.assertTrue(len(response.context['users_list']) == 10)
 
     def test_lists_all_users(self):
         response = self.client.get(reverse('users')+'?page=2')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HttpResponseBase.status_code)
         self.assertTrue('is_paginated' in response.context)
         self.assertTrue(response.context['is_paginated'])
         self.assertTrue(len(response.context['users_list']) == 5)
@@ -76,14 +77,14 @@ class TestListViewCase(TestCase):
         headers = {'HTTP_ACCEPT_LANGUAGE': 'ru'}
         name_project = 'Менеджер задач'
         response = self.client.get(reverse('users'), **headers)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HttpResponseBase.status_code)
         self.assertTrue(name_project in response.content.decode('utf-8'))
 
     def test_i18_en(self):
         headers = {'HTTP_ACCEPT_LANGUAGE': 'en'}
         name_project = 'Task Manager'
         response = self.client.get(reverse('users'), **headers)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HttpResponseBase.status_code)
         self.assertTrue(name_project in response.content.decode('utf-8'))
 
 
@@ -91,7 +92,7 @@ class TestCreateViewCase(TestCase):
 
     @classmethod
     def setUpTestData(cls):
-        cls.users_data = load_jsonfile_from_fixture(
+        cls.users_data = load_file_from_fixture(
             filename='test_users_data.json',
             add_paths=['users'],
         )
@@ -99,7 +100,7 @@ class TestCreateViewCase(TestCase):
 
     def test_create_view(self):
         response = self.client.get(reverse('create_user'))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HttpResponseBase.status_code)
         self.assertTemplateUsed(response, 'users/create.html')
 
         user = self.users_data['user_insert']
@@ -118,7 +119,7 @@ class TestLoginLogoutViewCase(TestCase):
 
     @classmethod
     def setUpTestData(cls):
-        cls.users_data = load_jsonfile_from_fixture(
+        cls.users_data = load_file_from_fixture(
             filename='test_users_data.json',
             add_paths=['users'],
         )
@@ -128,7 +129,7 @@ class TestLoginLogoutViewCase(TestCase):
 
     def test_login(self):
         response = self.client.get(reverse('login'))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HttpResponseBase.status_code)
         self.assertTemplateUsed(response, 'users/login.html')
 
         self.assertTrue(self.user_model.objects.filter(
@@ -152,7 +153,7 @@ class TestUpdateDeleteCase(TestCase):
 
     @classmethod
     def setUpTestData(cls):
-        cls.users_data = load_jsonfile_from_fixture(
+        cls.users_data = load_file_from_fixture(
             filename='test_users_data.json',
             add_paths=['users'],
         )
@@ -214,7 +215,7 @@ class TestCustomUserCreationForm(TestCase):
 
     @classmethod
     def setUpTestData(cls):
-        cls.users_data = load_jsonfile_from_fixture(
+        cls.users_data = load_file_from_fixture(
                     filename='test_users_data.json',
                     add_paths=['users'],
                 )

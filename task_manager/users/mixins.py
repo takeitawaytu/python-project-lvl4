@@ -44,9 +44,11 @@ class CheckUserRightsTestMixin(UserPassesTestMixin):
         user_test_result = self.get_test_func()()
 
         if not request.user.is_authenticated:
-            self.redirect_url = reverse_lazy('home')  # noqa: WPS601
+            self.redirect_url = reverse_lazy('login')  # noqa: WPS601
             messages.error(request, _('UserNotAuthentication'))
-        elif not user_test_result:
+            return self.handle_no_permission()
+        if not user_test_result:
             self.redirect_url = reverse_lazy('users')  # noqa: WPS601
             messages.error(request, _('UserNotHaveRights'))
+            return self.handle_no_permission()
         return super().dispatch(request, *args, **kwargs)

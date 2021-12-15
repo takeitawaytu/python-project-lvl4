@@ -1,40 +1,39 @@
 {% extends 'layout.html' %}
 {% load i18n %}
-{% block title %}{% translate 'Users' %}{% endblock %}
+{% block title %}{% translate 'Statuses' %}{% endblock %}
 
 {% block breadcrumb %}
   <ol class="breadcrumb">
     <li class="breadcrumb-item active" aria-current="page"><a href="/">{% translate 'BreadcrumbHome' %}</a></li>
-    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'users' %}">{% translate 'Users' %}</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'statuses' %}">{% translate 'Statuses' %}</a></li>
   </ol>
 {% endblock breadcrumb %}
 {% block content %}
-    <h2 class="mt-5">{% translate 'Users' %}</h2>
+    <h2 class="mt-5">{% translate 'Statuses' %}</h2>
+    <a href="{% url 'create_status' %}"><button class="btn btn-outline-info btn-sm mt-2 mb-2">{% translate 'StatusCreate' %}</button></a>
     <table class="table table-hover">
       <thead class="thead-light">
         <tr>
-          <th scope="col">{% translate 'UserID' %}</th>
-          <th scope="col">{% translate 'UserName' %}</th>
-          <th scope="col">{% translate 'UserFullName' %}</th>
-          <th scope="col">{% translate 'UserDateReg' %}</th>
-          <th scope="col">{% translate 'UserActions' %}</th>
+          <th scope="col">{% translate 'StatusID' %}</th>
+          <th scope="col">{% translate 'StatusName' %}</th>
+          <th scope="col">{% translate 'StatusDateReg' %}</th>
+          <th scope="col">{% translate 'StatusActions' %}</th>
         </tr>
       </thead>
       <tbody>
-        {% for user in users_list %}
+        {% for status in statuses_list %}
             <tr>
-                <td>{{ user.id }}</td>
-                <td><a href="{% url 'update_user' user.id %}">{{ user.username }}</a></td>
-                <td>{{ user.get_full_name }}</td>
-                <td>{{ user.date_joined|date:'d.m.Y H:i' }}</td>
+                <td>{{ status.id }}</td>
+                <td><a href="{% url 'update_status' status.id %}">{{ status.name }}</a></td>
+                <td>{{ status.created_at|date:'d.m.Y H:i' }}</td>
                 <td>
-                    <a href="{% url 'update_user' user.id %}"><button class="btn btn-outline-info btn-sm mt-1">{% translate 'UserChange' %}</button></a>
-                    <a href="{% url 'delete_user' user.id %}"><button class="btn btn-outline-danger btn-sm mt-1">{% translate 'UserDelete' %}</button></a>
+                    <a href="{% url 'update_status' status.id %}"><button class="btn btn-outline-info btn-sm mt-1">{% translate 'StatusChange' %}</button></a>
+                    <a href="{% url 'delete_status' status.id %}"><button class="btn btn-outline-danger btn-sm mt-1">{% translate 'StatusDelete' %}</button></a>
                 </td>
             </tr>
         {% empty %}
             <tr>
-                <td colspan="5"><strong>{% translate 'UserNotFound' %}</strong></td>
+                <td colspan="4"><strong>{% translate 'StatusesNotFound' %}</strong></td>
             </tr>
         {% endfor %}
       </tbody>
