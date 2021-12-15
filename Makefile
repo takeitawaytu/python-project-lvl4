@@ -27,7 +27,7 @@ test-coverage:
 	poetry run coverage report
 
 lint:
-	poetry run flake8 task_manager --exclude=task_manager/settings.py,task_manager\users\migrations
+	poetry run flake8 task_manager --exclude=task_manager/settings.py
 
 i18n_mm:
 	poetry run django-admin makemessages -l ru
