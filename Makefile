@@ -33,6 +33,6 @@ i18n_mm:
 	poetry run django-admin makemessages -l ru
 	poetry run django-admin makemessages -l en
 
-i18n_compile
+i18n_compile:
 	poetry run django-admin.py compilemessages -l ru
 	poetry run django-admin.py compilemessages -l en
