@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-14 18:42+0300\n"
+"POT-Creation-Date: 2021-12-20 17:34+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,20 +42,14 @@ msgid "Statuses"
 msgstr "Statuses"
 
 #: .\task_manager\statuses\views.py:32
-#, fuzzy
-#| msgid "SuccessCreateUser"
 msgid "SuccessCreateStatus"
 msgstr "User successfully created!"
 
 #: .\task_manager\statuses\views.py:47
-#, fuzzy
-#| msgid "SuccessUpdateUser"
 msgid "SuccessUpdateStatus"
 msgstr "User successfully updated!"
 
 #: .\task_manager\statuses\views.py:60
-#, fuzzy
-#| msgid "SuccessDeleteUser"
 msgid "SuccessDeleteStatus"
 msgstr "User successfully deleted!"
 
@@ -94,8 +88,6 @@ msgstr "Registration"
 #: .\task_manager\templates\statuses\create.html:4
 #: .\task_manager\templates\statuses\create.html:10
 #: .\task_manager\templates\statuses\create.html:16
-#, fuzzy
-#| msgid "CreateUsers"
 msgid "CreateStatuses"
 msgstr "Create status"
 
@@ -111,22 +103,16 @@ msgid "BreadcrumbHome"
 msgstr "Home"
 
 #: .\task_manager\templates\statuses\create.html:21
-#, fuzzy
-#| msgid "CreateUser"
 msgid "CreateStatus"
 msgstr "Create"
 
 #: .\task_manager\templates\statuses\delete.html:4
 #: .\task_manager\templates\statuses\delete.html:10
 #: .\task_manager\templates\statuses\delete.html:16
-#, fuzzy
-#| msgid "DeleteUsers"
 msgid "DeleteStatuses"
 msgstr "Delete status"
 
 #: .\task_manager\templates\statuses\delete.html:17
-#, fuzzy
-#| msgid "AreYouSureToDeleteUser"
 msgid "AreYouSureToDeleteStatus"
 msgstr "Are you sure to delete status"
 
@@ -141,8 +127,6 @@ msgid "Cancel"
 msgstr "Cancel"
 
 #: .\task_manager\templates\statuses\index.html:13
-#, fuzzy
-#| msgid "SuccessCreateUser"
 msgid "StatusCreate"
 msgstr "Status successfully created!"
 
@@ -151,32 +135,22 @@ msgid "StatusID"
 msgstr "ID"
 
 #: .\task_manager\templates\statuses\index.html:19
-#, fuzzy
-#| msgid "UserDateReg"
 msgid "StatusDateReg"
 msgstr "Date registration"
 
 #: .\task_manager\templates\statuses\index.html:20
-#, fuzzy
-#| msgid "UserActions"
 msgid "StatusActions"
 msgstr "Actions"
 
 #: .\task_manager\templates\statuses\index.html:30
-#, fuzzy
-#| msgid "UserChange"
 msgid "StatusChange"
 msgstr "Change"
 
 #: .\task_manager\templates\statuses\index.html:31
-#, fuzzy
-#| msgid "UserDelete"
 msgid "StatusDelete"
 msgstr "Delete"
 
 #: .\task_manager\templates\statuses\index.html:36
-#, fuzzy
-#| msgid "UserNotFound"
 msgid "StatusesNotFound"
 msgstr "Not statuses yet"
 
@@ -213,14 +187,10 @@ msgstr "&raquo;&raquo;&raquo;"
 #: .\task_manager\templates\statuses\update.html:4
 #: .\task_manager\templates\statuses\update.html:10
 #: .\task_manager\templates\statuses\update.html:16
-#, fuzzy
-#| msgid "UpdateUsers"
 msgid "UpdateStatuses"
 msgstr "Update status"
 
 #: .\task_manager\templates\statuses\update.html:21
-#, fuzzy
-#| msgid "UpdateUser"
 msgid "UpdateStatus"
 msgstr "Update"
 
