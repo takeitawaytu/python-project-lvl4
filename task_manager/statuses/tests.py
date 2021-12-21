@@ -50,10 +50,13 @@ class TestListViewCase(TestCase):
         """Setup once test data."""
         number_of_status = 15
         cls.model = Status
-        for postfix in range(number_of_status):
-            status = {'name': 'status{postfix}'.format(postfix=postfix)}
-            cls.model.objects.create(**status)
-
+        cls.model.objects.bulk_create(
+            [
+                cls.model(
+                    name=f'task{postfix}',  # noqa: WPS305
+                ) for postfix in range(number_of_status)
+            ], batch_size=number_of_status,
+        )
         cls.user_model = get_user_model()
         cls.credentials = {'username': 'test', 'password': 'test'}
         cls.user_model.objects.create_user(**cls.credentials)
@@ -96,7 +99,7 @@ class TestListViewCase(TestCase):
         self.assertTrue(response.context['is_paginated'])
         self.assertTrue(len(response.context['statuses_list']) == 5)
 
-    def test_not_authenticated_users_cannot_view(self):
+    def test_not_auth_users_cannot_view(self):
         """Test not authenticated users not allowed view."""
         self.client.logout()
         response = self.client.get(reverse('statuses'))
@@ -135,10 +138,32 @@ class TestCreateViewCase(TestCase):
             self.model.objects.get(name=self.data['name']).name,
         )
 
-    def test_not_authenticated_users_cannot_create(self):
-        """Test not authenticated users cannot create."""
+    def test_cannot_create(self):
+        """Test check unique field."""
+        response = self.client.post(
+            path=reverse('create_status'),
+            data=self.data,
+        )
+        self.assertRedirects(response, reverse('statuses'))
+        count_tasks = Status.objects.all().count()
+
+        response = self.client.post(
+            path=reverse('create_status'),
+            data=self.data,
+        )
+        self.assertEqual(response.status_code, HttpResponseBase.status_code)
+        self.assertEqual(count_tasks, Status.objects.all().count())
+
+    def test_get_not_auth_users_cannot_create(self):
+        """Test GET not authenticated users cannot create."""
         self.client.logout()
         response = self.client.get(reverse('create_status'))
+        self.assertRedirects(response, reverse('login'))
+
+    def test_post_not_auth_users_cannot_create(self):
+        """Test POST not authenticated users cannot create."""
+        self.client.logout()
+        response = self.client.post(reverse('create_status'))
         self.assertRedirects(response, reverse('login'))
 
 
@@ -172,10 +197,30 @@ class TestUpdateDeleteCase(TestCase):
             self.model.objects.get(pk=self.status.pk).name,
         )
 
-    def test_not_authenticated_users_cannot_update(self):
-        """Test not authenticated users cannot update."""
+    def test_cannot_update(self):
+        """Test check unique field."""
+        another_status_data = {'name': 'another_name'}
+        another_status_created = self.model.objects.create(
+            **another_status_data,
+        )
+        response = self.client.post(
+            path=reverse('update_status', args=[another_status_created.pk]),
+            data=self.data,
+        )
+        self.assertEqual(response.status_code, HttpResponseBase.status_code)
+
+    def test_get_not_auth_users_cannot_update(self):
+        """Test GET not authenticated users cannot update."""
         self.client.logout()
         response = self.client.get(
+            reverse('update_status', args=[self.status.pk]),
+        )
+        self.assertRedirects(response, reverse('login'))
+
+    def test_post_not_auth_users_cannot_update(self):
+        """Test POST not authenticated users cannot update."""
+        self.client.logout()
+        response = self.client.post(
             reverse('update_status', args=[self.status.pk]),
         )
         self.assertRedirects(response, reverse('login'))
@@ -190,10 +235,18 @@ class TestUpdateDeleteCase(TestCase):
             self.model.objects.filter(name=self.data['name']).exists(),
         )
 
-    def test_not_authenticated_users_cannot_delete(self):
-        """Test not authenticated users cannot delete."""
+    def test_get_not_auth_users_cannot_delete(self):
+        """Test GET not authenticated users cannot delete."""
         self.client.logout()
         response = self.client.get(
+            reverse('delete_status', args=[self.status.pk]),
+        )
+        self.assertRedirects(response, reverse('login'))
+
+    def test_post_not_auth_users_cannot_delete(self):
+        """Test POST not authenticated users cannot delete."""
+        self.client.logout()
+        response = self.client.post(
             reverse('delete_status', args=[self.status.pk]),
         )
         self.assertRedirects(response, reverse('login'))

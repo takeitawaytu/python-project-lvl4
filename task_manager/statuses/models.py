@@ -10,6 +10,11 @@ class Status(models.Model):
         unique=True,
         db_index=True,
         verbose_name=_('StatusName'),
+        help_text=_('HelpStatusFieldText'),
+        error_messages={
+            'unique': _('StatusWithThisNameAlreadyExist'),
+            'blank': _('ThisFieldCannotBeBlank'),
+        },
     )
     created_at = models.DateTimeField(auto_now_add=True)
 

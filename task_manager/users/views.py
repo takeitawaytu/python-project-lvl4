@@ -1,10 +1,13 @@
-from typing import Any
+from typing import Any, Union
 
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.db.models.deletion import ProtectedError
+from django.http.response import HttpResponsePermanentRedirect, \
+    HttpResponseRedirect
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -34,7 +37,6 @@ class UserCreateView(SuccessMessageMixin, CreateView):
 
 class UserUpdateView(
     CheckUserRightsTestMixin,
-    UserPassesTestMixin,
     SuccessMessageMixin,
     UpdateView,
 ):
@@ -45,11 +47,11 @@ class UserUpdateView(
     template_name = 'users/update.html'
     success_url = reverse_lazy('login')
     success_message = _('SuccessUpdateUser')
+    redirect_url = reverse_lazy('users')
 
 
 class UserDeleteView(
     CheckUserRightsTestMixin,
-    UserPassesTestMixin,
     SuccessMessageMixin,
     DeleteView,
 ):
@@ -59,6 +61,26 @@ class UserDeleteView(
     template_name = 'users/delete.html'
     success_url = reverse_lazy('home')
     success_message = _('SuccessDeleteUser')
+    redirect_url = reverse_lazy('users')
+
+    def post(self, request, *args, **kwargs) -> Union[
+        HttpResponsePermanentRedirect,
+        HttpResponseRedirect,
+    ]:
+        """
+        Override 'post' in DeletionMixin.
+        Args:
+            request: request
+        Returns:
+            Union:
+        """
+        try:
+            response = self.delete(request, *args, **kwargs)
+            messages.success(self.request, self.success_message)
+            return response
+        except ProtectedError:
+            messages.error(self.request, _('CannotDeleteUser'))
+            return redirect('users')
 
 
 class UserLoginView(SuccessMessageMixin, LoginView):

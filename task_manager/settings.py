@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'task_manager',
     'task_manager.users.apps.UsersConfig',
     'task_manager.statuses.apps.StatusesConfig',
+    'task_manager.tasks.apps.TasksConfig',
 ]
 
 MIDDLEWARE = [
@@ -188,3 +189,5 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 LOGIN_REDIRECT_URL = reverse_lazy('home')
 LOGOUT_REDIRECT_URL = reverse_lazy('home')
+
+FIXTURES_DIR = 'fixtures'

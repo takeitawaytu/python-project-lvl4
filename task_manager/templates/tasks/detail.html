@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+{% block title %}{% translate 'Tasks' %}{% endblock %}
+
+{% block breadcrumb %}
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"><a href="/">{% translate 'BreadcrumbHome' %}</a></li>
+    <li class="breadcrumb-item" aria-current="page"><a href="{% url 'tasks' %}">{% translate 'Tasks' %}</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'detail_task' task.id %}">{% translate 'TaskDetailView' %}</a></li>
+  </ol>
+{% endblock breadcrumb %}
+{% block content %}
+    <div class="container mt-5">
+        <h2>{% translate 'TaskDetailView' %}</h2>
+        <div class="card">
+            <h5 class="card-header">{{ task.name }}</h5>
+            <div class="card-body">
+                <p>{{ task.description|linebreaksbr }}</p>
+                <hr>
+                <div class="row p-1">
+                    <div class="col">{% translate 'TaskCreator' %}</div>
+                    <div class="col">{{ task.creator }}</div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">{% translate 'TaskExecutor' %}</div>
+                    <div class="col">{{ task.executor }}</div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">{% translate 'Status' %}</div>
+                    <div class="col">{{ task.status }}</div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">{% translate 'UserDateReg' %}</div>
+                    <div class="col">{{ task.created_at|date:'d.m.Y H:i' }}</div>
+                </div>
+                <hr>
+                <div class="row p-1 mt-1">
+                    <div class="col">
+                        <a href="{% url 'update_task' task.id %}"><button class="btn btn-outline-info btn-sm m-1">{% translate 'TaskChange' %}</button></a>
+                        <a href="{% url 'delete_task' task.id %}"><button class="btn btn-outline-danger btn-sm m-1">{% translate 'TaskDelete' %}</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %} 

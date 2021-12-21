@@ -1,20 +1,20 @@
 {% extends 'layout.html' %}
 {% load bootstrap4 i18n %}
 
-{% block title %}{% translate 'DeleteStatuses' %}{% endblock %}
+{% block title %}{% translate 'DeleteTasks' %}{% endblock %}
 
 {% block breadcrumb %}
   <ol class="breadcrumb">
     <li class="breadcrumb-item" aria-current="page"><a href="/">{% translate 'BreadcrumbHome' %}</a></li>
-    <li class="breadcrumb-item" aria-current="page"><a href="{% url 'statuses' %}">{% translate 'Statuses' %}</a></li>
-    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'delete_status' status.id %}">{% translate 'DeleteStatuses' %}</a></li>
+    <li class="breadcrumb-item" aria-current="page"><a href="{% url 'tasks' %}">{% translate 'Tasks' %}</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'delete_task' task.id %}">{% translate 'DeleteTasks' %}</a></li>
   </ol>
 {% endblock breadcrumb %}
 
 {% block content %}
     <div class="container mt-5">
-        <h2>{% translate 'DeleteStatuses' %}</h2>
-        <div class="mt-5">{% translate 'AreYouSureToDeleteStatus' %} <strong>"{{ object }}"</strong>?</div>
+        <h2>{% translate 'DeleteTasks' %}</h2>
+        <div class="mt-5">{% translate 'AreYouSureToDeleteTask' %} <strong>"{{ object }}"</strong>?</div>
         <div style="display: inline-block">
             <form class="form" method="post">
                 {% csrf_token %}
@@ -22,7 +22,7 @@
             </form>
         </div>
         <div style="display: inline-block">
-            <a class="btn btn-outline-info mt-3" href="{% url 'statuses' %}">{% translate 'Cancel' %}</a>
+            <a class="btn btn-outline-info mt-3" href="{% url 'tasks' %}">{% translate 'Cancel' %}</a>
         </div>
     </div>
 {% endblock %}
