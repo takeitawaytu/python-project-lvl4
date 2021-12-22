@@ -40,19 +40,5 @@
       </tbody>
     </table>
 
-    <div class="pagination">
-        <span class="step-links">
-            {% if page_obj.has_previous %}
-                <a class="mr-2" href="?page=1">{% translate 'PaginatonFirst' %}</a>
-                <a class="mr-2" href="?page={{ page_obj.previous_page_number }}">{% translate 'PaginatonPrevious' %}</a>
-            {% endif %}
-            <span class="current">
-                {% translate 'PaginatonPage' %} {{ page_obj.number }} {% translate 'PaginatonPageIS' %} {{ page_obj.paginator.num_pages }}.
-            </span>
-            {% if page_obj.has_next %}
-                <a class="ml-2" href="?page={{ page_obj.next_page_number }}">{% translate 'PaginatonNext' %}</a>
-                <a class="ml-2" href="?page={{ page_obj.paginator.num_pages }}">{% translate 'PaginatonLast' %}</a>
-            {% endif %}
-        </span>
-    </div>
+    {% include 'pagination.html' %}
 {% endblock content %}

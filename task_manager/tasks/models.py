@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from task_manager.labels.models import Label
 from task_manager.statuses.models import Status
 
 
@@ -42,6 +43,14 @@ class Tasks(models.Model):
         on_delete=models.PROTECT,
         verbose_name=_('TaskCreator'),
     )
+    labels = models.ManyToManyField(
+        Label,
+        related_name='labels',
+        through='TaskLabelRelated',
+        through_fields=('task', 'label'),
+        verbose_name=_('Labels'),
+        blank=True,
+    )
 
     def __str__(self) -> str:
         """
@@ -57,3 +66,20 @@ class Tasks(models.Model):
         verbose_name = _('Task')
         verbose_name_plural = _('Tasks')
         ordering = ['-created_at']
+
+
+class TaskLabelRelated(models.Model):
+    """Task-Label related model."""
+
+    task = models.ForeignKey(
+        Tasks,
+        related_name='task',
+        on_delete=models.CASCADE,
+    )
+    label = models.ForeignKey(
+        Label,
+        related_name='label',
+        on_delete=models.PROTECT,
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

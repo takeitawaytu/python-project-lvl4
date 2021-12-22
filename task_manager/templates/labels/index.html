@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+{% block title %}{% translate 'Labels' %}{% endblock %}
+
+{% block breadcrumb %}
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"><a href="/">{% translate 'BreadcrumbHome' %}</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'labels' %}">{% translate 'Labels' %}</a></li>
+  </ol>
+{% endblock breadcrumb %}
+{% block content %}
+    <h2 class="mt-5">{% translate 'Labels' %}</h2>
+    <a href="{% url 'create_label' %}"><button class="btn btn-outline-info btn-sm mt-2 mb-2">{% translate 'LabelCreate' %}</button></a>
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">{% translate 'LabelID' %}</th>
+          <th scope="col">{% translate 'LabelName' %}</th>
+          <th scope="col">{% translate 'LabelDateReg' %}</th>
+          <th scope="col">{% translate 'LabelActions' %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for label in labels_list %}
+            <tr>
+                <td>{{ label.id }}</td>
+                <td><a href="{% url 'update_label' label.id %}">{{ label.name }}</a></td>
+                <td>{{ label.created_at|date:'d.m.Y H:i' }}</td>
+                <td>
+                    <a href="{% url 'update_label' label.id %}"><button class="btn btn-outline-info btn-sm mt-1">{% translate 'LabelChange' %}</button></a>
+                    <a href="{% url 'delete_label' label.id %}"><button class="btn btn-outline-danger btn-sm mt-1">{% translate 'LabelDelete' %}</button></a>
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="4"><strong>{% translate 'LabelsNotFound' %}</strong></td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    {% include 'pagination.html' %}
+{% endblock content %}

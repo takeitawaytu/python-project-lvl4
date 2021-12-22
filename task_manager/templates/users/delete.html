@@ -6,15 +6,15 @@
 {% block breadcrumb %}
   <ol class="breadcrumb">
     <li class="breadcrumb-item" aria-current="page"><a href="/">{% translate 'BreadcrumbHome' %}</a></li>
-    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'users' %}">{% translate 'Users' %}</a></li>
-    <li class="breadcrumb-item" aria-current="page">{% translate 'DeleteUsers' %}</li>
+    <li class="breadcrumb-item" aria-current="page"><a href="{% url 'users' %}">{% translate 'Users' %}</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'delete_user' user.id %}">{% translate 'DeleteUsers' %}</a></li>
   </ol>
 {% endblock breadcrumb %}
 
 {% block content %}
     <div class="container mt-5">
         <h2>{% translate 'DeleteUsers' %}</h2>
-        <div class="mt-5">{% translate 'AreYouSureToDeleteUser' %} <strong>{{ object }}?</strong></div>
+        <div class="mt-5">{% translate 'AreYouSureToDeleteUser' %} <strong>"{{ user.username }}"</strong>?</div>
         <div style="display: inline-block">
             <form class="form" method="post">
                 {% csrf_token %}

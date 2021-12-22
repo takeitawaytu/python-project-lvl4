@@ -33,6 +33,16 @@
                     <div class="col">{% translate 'UserDateReg' %}</div>
                     <div class="col">{{ task.created_at|date:'d.m.Y H:i' }}</div>
                 </div>
+                <div class="row p-1">
+                    <div class="container">
+                        <h6>{% translate 'Labels' %}:</h6>
+                        <ul>
+                            {% for label in task.labels.all %}
+                                <li>{{ label.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
                 <hr>
                 <div class="row p-1 mt-1">
                     <div class="col">

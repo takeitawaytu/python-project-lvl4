@@ -1,0 +1,26 @@
+[
+  {
+    "model": "labels.label",
+    "pk": 4,
+    "fields": {
+      "name": "politic",
+      "created_at": "2021-04-27T16:02:33.774Z"
+    }
+  },
+  {
+    "model": "labels.label",
+    "pk": 5,
+    "fields": {
+      "name": "news",
+      "created_at": "2021-04-27T16:02:39.317Z"
+    }
+  },
+  {
+    "model": "labels.label",
+    "pk": 6,
+    "fields": {
+      "name": "blog",
+      "created_at": "2021-04-27T16:02:48.537Z"
+    }
+  }
+]

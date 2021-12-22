@@ -9,4 +9,4 @@ class TasksForm(forms.ModelForm):
         """Meta information."""
 
         model = Tasks
-        fields = ['name', 'description', 'status', 'executor']
+        fields = ['name', 'description', 'status', 'executor', 'labels']

@@ -1,26 +1,56 @@
 [
-    {
-      "model": "tasks.tasks",
-      "pk": 2,
-      "fields": {
-        "name": "important task",
-        "description": "erevqrvqerveqrver",
-        "created_at": "2021-04-25T15:52:14.642Z",
-        "status": 2,
-        "executor": 2,
-        "creator": 1
+  {
+    "model": "tasks.tasks",
+    "pk": 3,
+    "fields": {
+      "name": "important task",
+      "description": "awdawdafawfaef",
+      "created_at": "2021-04-23T15:59:33.675Z",
+      "status": 2,
+      "executor": 1,
+      "creator": 1
     }
   },
-    {
-      "model": "tasks.tasks",
-      "pk": 3,
-      "fields": {
-        "name": "important task 0",
-        "description": "awdawdafawfaef",
-        "created_at": "2021-04-25T15:59:33.675Z",
-        "status": 3,
-        "executor": 1,
-        "creator": 2
-      }
+  {
+    "model": "tasks.tasks",
+    "pk": 4,
+    "fields": {
+      "name": "important task 0",
+      "description": "awdawdafawfaef",
+      "created_at": "2021-04-23T15:59:33.686Z",
+      "status": 3,
+      "executor": 2,
+      "creator": 2
     }
+  },
+  {
+    "model": "tasks.tasklabelrelated",
+    "pk": 5,
+    "fields": {
+      "task": 3,
+      "label": 4,
+      "created_at": "2021-04-28T09:36:19.216Z",
+      "updated_at": "2021-04-28T09:36:19.217Z"
+    }
+  },
+  {
+    "model": "tasks.tasklabelrelated",
+    "pk": 6,
+    "fields": {
+      "task": 3,
+      "label": 5,
+      "created_at": "2021-04-28T09:36:19.217Z",
+      "updated_at": "2021-04-28T09:36:19.217Z"
+    }
+  },
+  {
+    "model": "tasks.tasklabelrelated",
+    "pk": 7,
+    "fields": {
+      "task": 4,
+      "label": 6,
+      "created_at": "2021-04-28T09:36:31.093Z",
+      "updated_at": "2021-04-28T09:36:31.093Z"
+    }
+  }
 ]
