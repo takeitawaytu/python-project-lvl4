@@ -1,13 +1,13 @@
 from django.http.response import HttpResponseBase
-from django.test import TestCase
 from django.urls import reverse
+from task_manager.mixins import TestCaseWithoutRollbar
 
 
-class TestI18nCase(TestCase):
+class TestI18nCase(TestCaseWithoutRollbar):
     """Language tests."""
 
     def test_i18_ru(self):
-        """Test correct get language."""
+        """Test correct get RU language."""
         headers = {'HTTP_ACCEPT_LANGUAGE': 'ru'}
         name_project = 'Менеджер задач'
         response = self.client.get(reverse('users'), **headers)
@@ -15,7 +15,7 @@ class TestI18nCase(TestCase):
         self.assertTrue(name_project in response.content.decode('utf-8'))
 
     def test_i18_en(self):
-        """Test correct get language."""
+        """Test correct get EN language."""
         headers = {'HTTP_ACCEPT_LANGUAGE': 'en'}
         name_project = 'Task Manager'
         response = self.client.get(reverse('users'), **headers)

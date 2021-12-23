@@ -16,7 +16,9 @@
       <div class="card-body bg-light">
         <form class="form-inline center small" method="get">
           {% bootstrap_form filter.form field_class="m-1" size="small"%}
-          <input class="btn btn-outline-info btn-sm" type="submit" value={% translate 'ButtonFilterActivate' %}>
+          <div class="container p-0 border-top mt-3 pt-2">
+                <input class="btn btn-outline-info btn-sm" type="submit" value={% translate 'ButtonFilterActivate' %}>
+          </div>
         </form>
       </div>
     </div>

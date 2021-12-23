@@ -1,13 +1,13 @@
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ObjectDoesNotExist
 from django.http.response import HttpResponseBase
-from django.test import TestCase
 from django.urls import reverse
+from task_manager.mixins import TestCaseWithoutRollbar
 from task_manager.statuses.forms import StatusForm
 from task_manager.statuses.models import Status
 
 
-class TestModelCase(TestCase):
+class TestModelCase(TestCaseWithoutRollbar):
     """Test model case."""
 
     @classmethod
@@ -42,7 +42,7 @@ class TestModelCase(TestCase):
             self.model.objects.get(pk=status.id)
 
 
-class TestListViewCase(TestCase):
+class TestListViewCase(TestCaseWithoutRollbar):
     """Test listing view."""
 
     @classmethod
@@ -106,7 +106,7 @@ class TestListViewCase(TestCase):
         self.assertRedirects(response, reverse('login'))
 
 
-class TestCreateViewCase(TestCase):
+class TestCreateViewCase(TestCaseWithoutRollbar):
     """Test create view."""
 
     @classmethod
@@ -167,7 +167,7 @@ class TestCreateViewCase(TestCase):
         self.assertRedirects(response, reverse('login'))
 
 
-class TestUpdateDeleteCase(TestCase):
+class TestUpdateDeleteCase(TestCaseWithoutRollbar):
     """Test update and delete view."""
 
     @classmethod
@@ -252,7 +252,7 @@ class TestUpdateDeleteCase(TestCase):
         self.assertRedirects(response, reverse('login'))
 
 
-class TestStatusCreationForm(TestCase):
+class TestStatusCreationForm(TestCaseWithoutRollbar):
     """Test form validations."""
 
     def test_valid_form(self):

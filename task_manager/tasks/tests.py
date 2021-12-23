@@ -2,15 +2,15 @@ from django.contrib.auth import get_user_model
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models.deletion import ProtectedError
 from django.http.response import HttpResponseBase
-from django.test import TestCase
 from django.urls import reverse
+from task_manager.mixins import TestCaseWithoutRollbar
 from task_manager.statuses.models import Status
 from task_manager.tasks.forms import TasksForm
 from task_manager.tasks.models import Tasks
 from task_manager.utils import load_file_from_fixture
 
 
-class TestModelCase(TestCase):
+class TestModelCase(TestCaseWithoutRollbar):
     """Test model case."""
 
     fixtures = [
@@ -84,7 +84,7 @@ class TestModelCase(TestCase):
             Tasks.objects.get(pk=task.pk)
 
 
-class TestListViewCase(TestCase):
+class TestListViewCase(TestCaseWithoutRollbar):
     """Test listing view."""
 
     @classmethod
@@ -151,7 +151,7 @@ class TestListViewCase(TestCase):
         self.assertRedirects(response, reverse('login'))
 
 
-class TestFilterViewCase(TestCase):
+class TestFilterViewCase(TestCaseWithoutRollbar):
     """Test filter view."""
 
     fixtures = [
@@ -222,7 +222,7 @@ class TestFilterViewCase(TestCase):
         self.assertEqual(count_rec_switch_off, len(response.context['tasks_list']))
 
 
-class TestCreateViewCase(TestCase):
+class TestCreateViewCase(TestCaseWithoutRollbar):
     """Test create view."""
 
     @classmethod
@@ -288,7 +288,7 @@ class TestCreateViewCase(TestCase):
         self.assertRedirects(response, reverse('login'))
 
 
-class TestUpdateDeleteCase(TestCase):
+class TestUpdateDeleteCase(TestCaseWithoutRollbar):
     """Test update and delete view."""
 
     fixtures = [
@@ -409,7 +409,7 @@ class TestUpdateDeleteCase(TestCase):
         )
 
 
-class TestStatusCreationForm(TestCase):
+class TestStatusCreationForm(TestCaseWithoutRollbar):
     """Test form validations."""
 
     fixtures = ['tasks/db_users.json', 'tasks/db_statuses.json']

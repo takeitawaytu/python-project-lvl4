@@ -2,13 +2,13 @@ from django.contrib.auth import get_user_model
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models.deletion import ProtectedError
 from django.http.response import HttpResponseBase
-from django.test import TestCase
 from django.urls import reverse
 from task_manager.labels.forms import LabelForm
 from task_manager.labels.models import Label
+from task_manager.mixins import TestCaseWithoutRollbar
 
 
-class TestModelCase(TestCase):
+class TestModelCase(TestCaseWithoutRollbar):
     """Test model case."""
 
     fixtures = [
@@ -56,7 +56,7 @@ class TestModelCase(TestCase):
             label_in_db.delete()
 
 
-class TestListViewCase(TestCase):
+class TestListViewCase(TestCaseWithoutRollbar):
     """Test listing view."""
 
     @classmethod
@@ -120,7 +120,7 @@ class TestListViewCase(TestCase):
         self.assertRedirects(response, reverse('login'))
 
 
-class TestCreateViewCase(TestCase):
+class TestCreateViewCase(TestCaseWithoutRollbar):
     """Test create view."""
 
     @classmethod
@@ -181,7 +181,7 @@ class TestCreateViewCase(TestCase):
         self.assertRedirects(response, reverse('login'))
 
 
-class TestUpdateDeleteCase(TestCase):
+class TestUpdateDeleteCase(TestCaseWithoutRollbar):
     """Test update and delete view."""
 
     @classmethod
@@ -266,7 +266,7 @@ class TestUpdateDeleteCase(TestCase):
         self.assertRedirects(response, reverse('login'))
 
 
-class TestStatusCreationForm(TestCase):
+class TestStatusCreationForm(TestCaseWithoutRollbar):
     """Test form validations."""
 
     def test_valid_form(self):
