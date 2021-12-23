@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-22 12:14+0300\n"
+"POT-Creation-Date: 2021-12-23 12:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgid "LabelWithThisNameAlreadyExist"
 msgstr "A label with that name already exists."
 
 #: task_manager/labels/models.py:17 task_manager/statuses/models.py:17
-#: task_manager/tasks/models.py:20
+#: task_manager/tasks/models.py:21
 msgid "ThisFieldCannotBeBlank"
 msgstr "This field cannot be blank."
 
@@ -39,13 +39,15 @@ msgstr "This field cannot be blank."
 msgid "Label"
 msgstr "Label"
 
-#: task_manager/labels/models.py:35 task_manager/templates/labels/create.html:9
+#: task_manager/labels/models.py:35 task_manager/tasks/models.py:52
+#: task_manager/templates/labels/create.html:9
 #: task_manager/templates/labels/delete.html:9
 #: task_manager/templates/labels/index.html:3
 #: task_manager/templates/labels/index.html:8
 #: task_manager/templates/labels/index.html:12
 #: task_manager/templates/labels/update.html:9
-#: task_manager/templates/layout.html:29
+#: task_manager/templates/layout.html:28
+#: task_manager/templates/tasks/detail.html:38
 msgid "Labels"
 msgstr "Labels"
 
@@ -83,13 +85,13 @@ msgstr "Required. 100 characters or fewer."
 msgid "StatusWithThisNameAlreadyExist"
 msgstr "A status with that name already exists."
 
-#: task_manager/statuses/models.py:34 task_manager/tasks/models.py:32
+#: task_manager/statuses/models.py:34 task_manager/tasks/models.py:33
 #: task_manager/templates/tasks/detail.html:29
-#: task_manager/templates/tasks/index.html:19
+#: task_manager/templates/tasks/index.html:27
 msgid "Status"
 msgstr "Status"
 
-#: task_manager/statuses/models.py:35 task_manager/templates/layout.html:26
+#: task_manager/statuses/models.py:35 task_manager/templates/layout.html:25
 #: task_manager/templates/statuses/create.html:9
 #: task_manager/templates/statuses/delete.html:9
 #: task_manager/templates/statuses/index.html:3
@@ -115,41 +117,49 @@ msgstr "Status successfully deleted!"
 msgid "CannotDeleteStatus"
 msgstr "It is impossible to delete the status because it is in use"
 
+#: task_manager/tasks/filters.py:16
+msgid "FilterLabels"
+msgstr "Label"
+
+#: task_manager/tasks/filters.py:21
+msgid "FilterOnlyCreatorTasks"
+msgstr "Only your tasks"
+
 #: task_manager/tasks/mixins.py:69
 msgid "ErrorTaskCanOnlyBeDeletedByAuthor"
 msgstr "Only its author can delete a task"
 
-#: task_manager/tasks/models.py:16
+#: task_manager/tasks/models.py:17
 msgid "TasksName"
 msgstr "Name"
 
-#: task_manager/tasks/models.py:17
+#: task_manager/tasks/models.py:18
 msgid "HelpTaskFieldText"
 msgstr "Required. 150 characters or fewer."
 
-#: task_manager/tasks/models.py:19
+#: task_manager/tasks/models.py:20
 msgid "TaskWithThisNameAlreadyExist"
 msgstr "A task with that name already exists."
 
-#: task_manager/tasks/models.py:25
+#: task_manager/tasks/models.py:26
 msgid "TaskDescription"
 msgstr "Description"
 
-#: task_manager/tasks/models.py:38 task_manager/templates/tasks/detail.html:25
-#: task_manager/templates/tasks/index.html:21
+#: task_manager/tasks/models.py:39 task_manager/templates/tasks/detail.html:25
+#: task_manager/templates/tasks/index.html:29
 msgid "TaskExecutor"
 msgstr "Executor"
 
-#: task_manager/tasks/models.py:44 task_manager/templates/tasks/detail.html:21
-#: task_manager/templates/tasks/index.html:20
+#: task_manager/tasks/models.py:45 task_manager/templates/tasks/detail.html:21
+#: task_manager/templates/tasks/index.html:28
 msgid "TaskCreator"
 msgstr "Author"
 
-#: task_manager/tasks/models.py:59
+#: task_manager/tasks/models.py:68
 msgid "Task"
 msgstr "Task"
 
-#: task_manager/tasks/models.py:60 task_manager/templates/layout.html:32
+#: task_manager/tasks/models.py:69 task_manager/templates/layout.html:31
 #: task_manager/templates/tasks/create.html:9
 #: task_manager/templates/tasks/delete.html:9
 #: task_manager/templates/tasks/detail.html:3
@@ -161,20 +171,20 @@ msgstr "Task"
 msgid "Tasks"
 msgstr "Tasks"
 
-#: task_manager/tasks/views.py:55
+#: task_manager/tasks/views.py:67
 msgid "SuccessCreateTask"
 msgstr "Task successfully created!"
 
-#: task_manager/tasks/views.py:86
+#: task_manager/tasks/views.py:103
 msgid "SuccessUpdateTask"
 msgstr "Task successfully updated!"
 
-#: task_manager/tasks/views.py:100
+#: task_manager/tasks/views.py:117
 msgid "SuccessDeleteTask"
 msgstr "Task successfully deleted!"
 
-#: task_manager/templates/index.html:4 task_manager/templates/layout.html:9
-#: task_manager/templates/layout.html:15
+#: task_manager/templates/index.html:4 task_manager/templates/layout.html:8
+#: task_manager/templates/layout.html:14
 msgid "NameProject"
 msgstr "Task Manager"
 
@@ -264,48 +274,6 @@ msgstr "Delete"
 msgid "LabelsNotFound"
 msgstr "Not labels yet"
 
-#: task_manager/templates/labels/index.html:45
-#: task_manager/templates/statuses/index.html:45
-#: task_manager/templates/tasks/index.html:51
-#: task_manager/templates/users/index.html:46
-msgid "PaginatonFirst"
-msgstr "&laquo;&laquo;&laquo;"
-
-#: task_manager/templates/labels/index.html:46
-#: task_manager/templates/statuses/index.html:46
-#: task_manager/templates/tasks/index.html:52
-#: task_manager/templates/users/index.html:47
-msgid "PaginatonPrevious"
-msgstr "prev."
-
-#: task_manager/templates/labels/index.html:49
-#: task_manager/templates/statuses/index.html:49
-#: task_manager/templates/tasks/index.html:55
-#: task_manager/templates/users/index.html:50
-msgid "PaginatonPage"
-msgstr "page"
-
-#: task_manager/templates/labels/index.html:49
-#: task_manager/templates/statuses/index.html:49
-#: task_manager/templates/tasks/index.html:55
-#: task_manager/templates/users/index.html:50
-msgid "PaginatonPageIS"
-msgstr "is"
-
-#: task_manager/templates/labels/index.html:52
-#: task_manager/templates/statuses/index.html:52
-#: task_manager/templates/tasks/index.html:58
-#: task_manager/templates/users/index.html:53
-msgid "PaginatonNext"
-msgstr "next"
-
-#: task_manager/templates/labels/index.html:53
-#: task_manager/templates/statuses/index.html:53
-#: task_manager/templates/tasks/index.html:59
-#: task_manager/templates/users/index.html:54
-msgid "PaginatonLast"
-msgstr "&raquo;&raquo;&raquo;"
-
 #: task_manager/templates/labels/update.html:4
 #: task_manager/templates/labels/update.html:10
 #: task_manager/templates/labels/update.html:16
@@ -316,26 +284,26 @@ msgstr "Update label"
 msgid "UpdateLabel"
 msgstr "Update"
 
-#: task_manager/templates/layout.html:22
+#: task_manager/templates/layout.html:21
 #: task_manager/templates/users/create.html:9
 #: task_manager/templates/users/delete.html:9
 #: task_manager/templates/users/index.html:3
 #: task_manager/templates/users/index.html:8
 #: task_manager/templates/users/index.html:12
-#: task_manager/templates/users/update.html:9 task_manager/users/models.py:13
+#: task_manager/templates/users/update.html:9 task_manager/users/models.py:17
 msgid "Users"
 msgstr "Users"
 
-#: task_manager/templates/layout.html:42
+#: task_manager/templates/layout.html:41
 msgid "Logout"
 msgstr "Logout"
 
-#: task_manager/templates/layout.html:46
+#: task_manager/templates/layout.html:45
 #: task_manager/templates/users/login.html:19
 msgid "Login"
 msgstr "Login"
 
-#: task_manager/templates/layout.html:49
+#: task_manager/templates/layout.html:48
 msgid "Registration"
 msgstr "Registration"
 
@@ -424,34 +392,38 @@ msgid "TaskDetailView"
 msgstr "Task view"
 
 #: task_manager/templates/tasks/detail.html:33
-#: task_manager/templates/tasks/index.html:22
+#: task_manager/templates/tasks/index.html:30
 #: task_manager/templates/users/index.html:19
 msgid "UserDateReg"
 msgstr "Date registration"
 
-#: task_manager/templates/tasks/detail.html:39
-#: task_manager/templates/tasks/index.html:36
+#: task_manager/templates/tasks/detail.html:49
+#: task_manager/templates/tasks/index.html:44
 msgid "TaskChange"
 msgstr "Change"
 
-#: task_manager/templates/tasks/detail.html:40
-#: task_manager/templates/tasks/index.html:37
+#: task_manager/templates/tasks/detail.html:50
+#: task_manager/templates/tasks/index.html:45
 msgid "TaskDelete"
 msgstr "Delete"
 
-#: task_manager/templates/tasks/index.html:17
+#: task_manager/templates/tasks/index.html:18
+msgid "ButtonFilterActivate"
+msgstr "Show"
+
+#: task_manager/templates/tasks/index.html:25
 msgid "TaskID"
 msgstr "ID"
 
-#: task_manager/templates/tasks/index.html:18
+#: task_manager/templates/tasks/index.html:26
 msgid "TaskName"
 msgstr "Name"
 
-#: task_manager/templates/tasks/index.html:23
+#: task_manager/templates/tasks/index.html:31
 msgid "TaskActions"
 msgstr "Actions"
 
-#: task_manager/templates/tasks/index.html:42
+#: task_manager/templates/tasks/index.html:50
 msgid "TaskNotFound"
 msgstr "Not tasks yet"
 
@@ -533,7 +505,7 @@ msgstr "Update"
 msgid "ErrorUserNotHaveRights"
 msgstr "You do not have permission to change another user!"
 
-#: task_manager/users/models.py:12
+#: task_manager/users/models.py:16
 msgid "User"
 msgstr "User"
 

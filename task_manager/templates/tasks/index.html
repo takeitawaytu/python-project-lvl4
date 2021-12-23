@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
-{% load i18n %}
+{% load bootstrap4 i18n %}
 {% block title %}{% translate 'Tasks' %}{% endblock %}
+{% translate 'Показать' as ShowFilter %}
 
 {% block breadcrumb %}
   <ol class="breadcrumb">
@@ -11,6 +12,14 @@
 {% block content %}
     <h2 class="mt-5">{% translate 'Tasks' %}</h2>
     <a href="{% url 'create_task' %}"><button class="btn btn-outline-info btn-sm mt-2 mb-2">{% translate 'CreateTask' %}</button></a>
+    <div class="card mb-3">
+      <div class="card-body bg-light">
+        <form class="form-inline center small" method="get">
+          {% bootstrap_form filter.form field_class="m-1" size="small"%}
+          <input class="btn btn-outline-info btn-sm" type="submit" value={% translate 'ButtonFilterActivate' %}>
+        </form>
+      </div>
+    </div>
     <table class="table table-hover">
       <thead class="thead-light">
         <tr>
@@ -44,6 +53,5 @@
         {% endfor %}
       </tbody>
     </table>
-
     {% include 'pagination.html' %}
 {% endblock content %}

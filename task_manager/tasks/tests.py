@@ -151,6 +151,77 @@ class TestListViewCase(TestCase):
         self.assertRedirects(response, reverse('login'))
 
 
+class TestFilterViewCase(TestCase):
+    """Test filter view."""
+
+    fixtures = [
+        'tasks/db_users.json',
+        'tasks/db_statuses.json',
+        'tasks/db_labels.json',
+        'tasks/db_tasks.json',
+    ]
+
+    @classmethod
+    def setUpTestData(cls):
+        """Setup once test data."""
+        cls.model = Tasks
+        cls.user_model = get_user_model()
+        cls.credentials = {'username': 'user_test1', 'password': '12345'}
+        cls.url = reverse('tasks')
+
+    def setUp(self):
+        """Setup always when test executed."""
+        self.client.login(**self.credentials)
+
+    def get_absolute_filter_url(self, **kwargs) -> str:
+        """
+        Get absolute url use query string.
+        Args:
+            kwargs:
+        Returns:
+            str:
+        """
+        data = {'status': '', 'executor': '', 'label': ''}
+        data.update(kwargs)
+        query_str = '?status={status}&executor={executor}&label={label}'
+        if 'creator' in kwargs:
+            query_str = '{query_str}&self_tasks=on'.format(query_str=query_str)
+        query_str = query_str.format(**data)
+        return '{url}{query_str}'.format(url=self.url, query_str=query_str)
+
+    def test_filters_by_each_field(self):
+        """Test filters by each field."""
+        mapping_fields_db = {
+            'status': 'status',
+            'executor': 'executor',
+            'label': 'labels',
+        }
+        query_data = [('status', 3), ('executor', 1), ('label', 6)]
+        for data in query_data:
+            field, field_data = data
+            count_rec_in_db = self.model.objects.filter(
+                **{mapping_fields_db[field]: field_data},
+            ).count()
+            response = self.client.get(
+                self.get_absolute_filter_url(**{field: field_data}),
+            )
+            self.assertEqual(response.status_code, HttpResponseBase.status_code)
+            self.assertEqual(count_rec_in_db, len(response.context['tasks_list']))
+
+    def test_filter_switch_on_off_task_only_author(self):
+        """Test switch on/off task only author."""
+        data = {'creator': 1}
+        count_rec_switch_on = self.model.objects.filter(**data).count()
+        response = self.client.get(self.get_absolute_filter_url(**data))
+        self.assertEqual(response.status_code, HttpResponseBase.status_code)
+        self.assertEqual(count_rec_switch_on, len(response.context['tasks_list']))
+
+        count_rec_switch_off = self.model.objects.all().count()
+        response = self.client.get(self.get_absolute_filter_url())
+        self.assertEqual(response.status_code, HttpResponseBase.status_code)
+        self.assertEqual(count_rec_switch_off, len(response.context['tasks_list']))
+
+
 class TestCreateViewCase(TestCase):
     """Test create view."""
 
@@ -368,5 +439,10 @@ class TestStatusCreationForm(TestCase):
 
     def test_invalid_form(self):
         """Test form is invalid."""
-        self.form_data = {'name': ''}
-        self.assertFalse(TasksForm(data=self.form_data).is_valid())
+        form_data = (
+            {'name': '', 'status': '1', 'executor': '1'},
+            {'name': 'test', 'status': '', 'executor': '1'},
+            {'name': 'test', 'status': '1', 'executor': ''},
+        )
+        for data in form_data:
+            self.assertFalse(TasksForm(data=data).is_valid())

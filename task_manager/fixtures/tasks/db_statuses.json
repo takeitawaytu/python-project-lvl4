@@ -14,5 +14,13 @@
       "name": "updated",
       "created_at": "2021-04-25T08:55:04.501Z"
     }
+  },
+  {
+    "model": "statuses.status",
+    "pk": 4,
+    "fields": {
+      "name": "finish",
+      "created_at": "2021-04-25T08:55:04.501Z"
+    }
   }
 ]

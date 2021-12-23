@@ -262,5 +262,5 @@ class TestStatusCreationForm(TestCase):
 
     def test_invalid_form(self):
         """Test form is invalid."""
-        data = {'noname': 'test'}
+        data = {'name': ''}
         self.assertFalse(StatusForm(data=data).is_valid())

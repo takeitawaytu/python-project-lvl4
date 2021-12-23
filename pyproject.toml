@@ -19,6 +19,7 @@ psycopg2 = "^2.9.2"
 django-bootstrap4 = "^21.1"
 flake8 = "^4.0.1"
 coverage = "^6.2"
+django-filter = "^21.1"
 
 [tool.poetry.dev-dependencies]
 coverage = "^6.1.2"
