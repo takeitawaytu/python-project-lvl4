@@ -89,7 +89,7 @@ class UserDeleteView(
     model = get_user_model()
     context_object_name = 'user'
     template_name = 'users/delete.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('users')
     success_message = _('SuccessDeleteUser')
     redirect_url = reverse_lazy('users')
 
@@ -118,6 +118,7 @@ class UserLoginView(SuccessMessageMixin, LoginView):
 
     template_name = 'users/login.html'
     success_message = _('SuccessLoginUser')
+    redirect_url = reverse_lazy('home')
 
 
 class UserLogoutView(LogoutView):

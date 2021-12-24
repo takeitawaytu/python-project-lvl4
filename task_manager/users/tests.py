@@ -179,7 +179,7 @@ class TestUpdateDeleteCase(TestCase):
         response = self.client.post(
             path=reverse('delete_user', args=[self.user.pk]),
         )
-        self.assertRedirects(response, reverse('home'))
+        self.assertRedirects(response, reverse('users'))
         self.assertFalse(self.user_model.objects.filter(
             username=self.credentials['username'],
         ).exists())

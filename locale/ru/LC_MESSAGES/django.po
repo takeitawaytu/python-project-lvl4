@@ -240,7 +240,7 @@ msgstr "Вы уверены что хотите удалить"
 #: task_manager/templates/tasks/delete.html:21
 #: task_manager/templates/users/delete.html:21
 msgid "DeleteConfirm"
-msgstr "Удалить"
+msgstr "Да, удалить"
 
 #: task_manager/templates/labels/delete.html:25
 #: task_manager/templates/statuses/delete.html:25
@@ -556,7 +556,7 @@ msgstr "Пользователь успешно изменён"
 
 #: task_manager/users/views.py:90
 msgid "SuccessDeleteUser"
-msgstr "Пользователь успешно удален!"
+msgstr "Пользователь успешно удалён"
 
 #: task_manager/users/views.py:111
 msgid "CannotDeleteUser"
