@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-24 12:38+0300\n"
+"POT-Creation-Date: 2021-12-24 13:45+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,7 +41,7 @@ msgstr "Это поле не может быть пустым."
 msgid "Label"
 msgstr "Метка"
 
-#: task_manager/labels/models.py:35 task_manager/tasks/models.py:52
+#: task_manager/labels/models.py:35 task_manager/tasks/models.py:54
 #: task_manager/templates/labels/create.html:9
 #: task_manager/templates/labels/delete.html:9
 #: task_manager/templates/labels/index.html:3
@@ -152,16 +152,16 @@ msgstr "Описание"
 msgid "TaskExecutor"
 msgstr "Исполнитель"
 
-#: task_manager/tasks/models.py:45 task_manager/templates/tasks/detail.html:21
+#: task_manager/tasks/models.py:47 task_manager/templates/tasks/detail.html:21
 #: task_manager/templates/tasks/index.html:30
 msgid "TaskCreator"
 msgstr "Автор"
 
-#: task_manager/tasks/models.py:68
+#: task_manager/tasks/models.py:70
 msgid "Task"
 msgstr "Задача"
 
-#: task_manager/tasks/models.py:69 task_manager/templates/layout.html:31
+#: task_manager/tasks/models.py:71 task_manager/templates/layout.html:31
 #: task_manager/templates/tasks/create.html:9
 #: task_manager/templates/tasks/delete.html:9
 #: task_manager/templates/tasks/detail.html:3
@@ -223,7 +223,7 @@ msgstr "Главная"
 
 #: task_manager/templates/labels/create.html:21
 msgid "CreateLabel"
-msgstr "Создать метку"
+msgstr "Создать"
 
 #: task_manager/templates/labels/delete.html:4
 #: task_manager/templates/labels/delete.html:10
@@ -304,9 +304,11 @@ msgid "Logout"
 msgstr "Выход"
 
 #: task_manager/templates/layout.html:45
-#: task_manager/templates/users/login.html:19
-msgid "Login"
-msgstr "Войти"
+#: task_manager/templates/users/login.html:4
+#: task_manager/templates/users/login.html:8
+#: task_manager/templates/users/login.html:14
+msgid "LoginUsers"
+msgstr "Вход"
 
 #: task_manager/templates/layout.html:48
 msgid "Registration"
@@ -320,7 +322,7 @@ msgstr "Создание статуса"
 
 #: task_manager/templates/statuses/create.html:21
 msgid "CreateStatus"
-msgstr "Создать статус"
+msgstr "Создать"
 
 #: task_manager/templates/statuses/delete.html:4
 #: task_manager/templates/statuses/delete.html:10
@@ -377,9 +379,8 @@ msgid "CreateTasks"
 msgstr "Создание задачи"
 
 #: task_manager/templates/tasks/create.html:21
-#: task_manager/templates/tasks/index.html:13
 msgid "CreateTask"
-msgstr "Создать задачу"
+msgstr "Создать"
 
 #: task_manager/templates/tasks/delete.html:4
 #: task_manager/templates/tasks/delete.html:10
@@ -412,6 +413,10 @@ msgstr "Изменить"
 #: task_manager/templates/tasks/index.html:47
 msgid "TaskDelete"
 msgstr "Удалить"
+
+#: task_manager/templates/tasks/index.html:13
+msgid "IndexCreateTask"
+msgstr "Создать задачу"
 
 #: task_manager/templates/tasks/index.html:19
 msgid "ButtonFilterActivate"
@@ -522,11 +527,9 @@ msgstr "Действия"
 msgid "UserNotFound"
 msgstr "Пользователи не найдены"
 
-#: task_manager/templates/users/login.html:4
-#: task_manager/templates/users/login.html:8
-#: task_manager/templates/users/login.html:14
-msgid "LoginUsers"
-msgstr "Вход"
+#: task_manager/templates/users/login.html:19
+msgid "Login"
+msgstr "Войти"
 
 #: task_manager/templates/users/update.html:4
 #: task_manager/templates/users/update.html:10
@@ -546,26 +549,26 @@ msgstr "У вас нет прав для изменения другого по�
 msgid "User"
 msgstr "Пользователь"
 
-#: task_manager/users/views.py:59
+#: task_manager/users/views.py:64
 msgid "SuccessCreateUser"
 msgstr "Пользователь успешно зарегистрирован"
 
-#: task_manager/users/views.py:75
+#: task_manager/users/views.py:80
 msgid "SuccessUpdateUser"
 msgstr "Пользователь успешно изменён"
 
-#: task_manager/users/views.py:90
+#: task_manager/users/views.py:95
 msgid "SuccessDeleteUser"
 msgstr "Пользователь успешно удалён"
 
-#: task_manager/users/views.py:111
+#: task_manager/users/views.py:116
 msgid "CannotDeleteUser"
 msgstr "Невозможно удалить пользователя, потому что он используется"
 
-#: task_manager/users/views.py:119
+#: task_manager/users/views.py:124
 msgid "SuccessLoginUser"
 msgstr "Вы залогинены"
 
-#: task_manager/users/views.py:136
+#: task_manager/users/views.py:141
 msgid "SuccessLogoutUser"
 msgstr "Вы разлогинены"
