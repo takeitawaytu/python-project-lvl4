@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-23 12:40+0300\n"
+"POT-Creation-Date: 2021-12-24 12:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,7 +67,7 @@ msgstr "Label successfully deleted!"
 msgid "CannotDeleteLabel"
 msgstr "Unable to delete label because he is in use"
 
-#: task_manager/mixins.py:27 task_manager/tasks/mixins.py:30
+#: task_manager/mixins.py:28 task_manager/tasks/mixins.py:30
 #: task_manager/tasks/mixins.py:66 task_manager/users/mixins.py:53
 msgid "UserNotAuthentication"
 msgstr "User is not authenticated!"
@@ -87,7 +87,7 @@ msgstr "A status with that name already exists."
 
 #: task_manager/statuses/models.py:34 task_manager/tasks/models.py:33
 #: task_manager/templates/tasks/detail.html:29
-#: task_manager/templates/tasks/index.html:27
+#: task_manager/templates/tasks/index.html:29
 msgid "Status"
 msgstr "Status"
 
@@ -146,12 +146,12 @@ msgid "TaskDescription"
 msgstr "Description"
 
 #: task_manager/tasks/models.py:39 task_manager/templates/tasks/detail.html:25
-#: task_manager/templates/tasks/index.html:29
+#: task_manager/templates/tasks/index.html:31
 msgid "TaskExecutor"
 msgstr "Executor"
 
 #: task_manager/tasks/models.py:45 task_manager/templates/tasks/detail.html:21
-#: task_manager/templates/tasks/index.html:28
+#: task_manager/templates/tasks/index.html:30
 msgid "TaskCreator"
 msgstr "Author"
 
@@ -213,6 +213,7 @@ msgstr "Create"
 #: task_manager/templates/tasks/update.html:8
 #: task_manager/templates/users/create.html:8
 #: task_manager/templates/users/delete.html:8
+#: task_manager/templates/users/detail.html:7
 #: task_manager/templates/users/index.html:7
 #: task_manager/templates/users/update.html:8
 msgid "BreadcrumbHome"
@@ -287,10 +288,12 @@ msgstr "Update"
 #: task_manager/templates/layout.html:21
 #: task_manager/templates/users/create.html:9
 #: task_manager/templates/users/delete.html:9
+#: task_manager/templates/users/detail.html:3
+#: task_manager/templates/users/detail.html:8
 #: task_manager/templates/users/index.html:3
 #: task_manager/templates/users/index.html:8
 #: task_manager/templates/users/index.html:12
-#: task_manager/templates/users/update.html:9 task_manager/users/models.py:17
+#: task_manager/templates/users/update.html:9 task_manager/users/models.py:29
 msgid "Users"
 msgstr "Users"
 
@@ -392,38 +395,39 @@ msgid "TaskDetailView"
 msgstr "Task view"
 
 #: task_manager/templates/tasks/detail.html:33
-#: task_manager/templates/tasks/index.html:30
+#: task_manager/templates/tasks/index.html:32
+#: task_manager/templates/users/detail.html:27
 #: task_manager/templates/users/index.html:19
 msgid "UserDateReg"
 msgstr "Date registration"
 
-#: task_manager/templates/tasks/detail.html:49
-#: task_manager/templates/tasks/index.html:44
+#: task_manager/templates/tasks/detail.html:46
+#: task_manager/templates/tasks/index.html:46
 msgid "TaskChange"
 msgstr "Change"
 
-#: task_manager/templates/tasks/detail.html:50
-#: task_manager/templates/tasks/index.html:45
+#: task_manager/templates/tasks/detail.html:47
+#: task_manager/templates/tasks/index.html:47
 msgid "TaskDelete"
 msgstr "Delete"
 
-#: task_manager/templates/tasks/index.html:18
+#: task_manager/templates/tasks/index.html:19
 msgid "ButtonFilterActivate"
 msgstr "Show"
 
-#: task_manager/templates/tasks/index.html:25
+#: task_manager/templates/tasks/index.html:27
 msgid "TaskID"
 msgstr "ID"
 
-#: task_manager/templates/tasks/index.html:26
+#: task_manager/templates/tasks/index.html:28
 msgid "TaskName"
 msgstr "Name"
 
-#: task_manager/templates/tasks/index.html:31
+#: task_manager/templates/tasks/index.html:33
 msgid "TaskActions"
 msgstr "Actions"
 
-#: task_manager/templates/tasks/index.html:50
+#: task_manager/templates/tasks/index.html:52
 msgid "TaskNotFound"
 msgstr "Not tasks yet"
 
@@ -457,6 +461,45 @@ msgstr "Delete users"
 msgid "AreYouSureToDeleteUser"
 msgstr "Are you sure to delete user"
 
+#: task_manager/templates/users/detail.html:9
+#: task_manager/templates/users/detail.html:14
+msgid "UserDetailView"
+msgstr "User view"
+
+#: task_manager/templates/users/detail.html:19
+msgid "Username"
+msgstr "Name"
+
+#: task_manager/templates/users/detail.html:23
+msgid "UserFullname"
+msgstr "Full name"
+
+#: task_manager/templates/users/detail.html:31
+msgid "UserLastLogin"
+msgstr "Last login date"
+
+#: task_manager/templates/users/detail.html:35
+msgid "CountTasks"
+msgstr "Number of tasks created"
+
+#: task_manager/templates/users/detail.html:38
+msgid "CountTaskByUser"
+msgstr "Number of tasks created"
+
+#: task_manager/templates/users/detail.html:42
+msgid "CountTaskToUser"
+msgstr "User assigned as executor"
+
+#: task_manager/templates/users/detail.html:47
+#: task_manager/templates/users/index.html:31
+msgid "UserChange"
+msgstr "Change"
+
+#: task_manager/templates/users/detail.html:48
+#: task_manager/templates/users/index.html:32
+msgid "UserDelete"
+msgstr "Delete"
+
 #: task_manager/templates/users/index.html:16
 msgid "UserID"
 msgstr "ID"
@@ -472,14 +515,6 @@ msgstr "Full name"
 #: task_manager/templates/users/index.html:20
 msgid "UserActions"
 msgstr "Actions"
-
-#: task_manager/templates/users/index.html:31
-msgid "UserChange"
-msgstr "Change"
-
-#: task_manager/templates/users/index.html:32
-msgid "UserDelete"
-msgstr "Delete"
 
 #: task_manager/templates/users/index.html:37
 msgid "UserNotFound"
@@ -505,30 +540,30 @@ msgstr "Update"
 msgid "ErrorUserNotHaveRights"
 msgstr "You do not have permission to change another user!"
 
-#: task_manager/users/models.py:16
+#: task_manager/users/models.py:28
 msgid "User"
 msgstr "User"
 
-#: task_manager/users/views.py:37
+#: task_manager/users/views.py:59
 msgid "SuccessCreateUser"
 msgstr "User successfully created!"
 
-#: task_manager/users/views.py:53
+#: task_manager/users/views.py:75
 msgid "SuccessUpdateUser"
 msgstr "User successfully updated!"
 
-#: task_manager/users/views.py:68
+#: task_manager/users/views.py:90
 msgid "SuccessDeleteUser"
 msgstr "User successfully deleted!"
 
-#: task_manager/users/views.py:89
+#: task_manager/users/views.py:111
 msgid "CannotDeleteUser"
 msgstr "Unable to delete user because he is in use"
 
-#: task_manager/users/views.py:97
+#: task_manager/users/views.py:119
 msgid "SuccessLoginUser"
 msgstr "User successfully login!"
 
-#: task_manager/users/views.py:114
+#: task_manager/users/views.py:136
 msgid "SuccessLogoutUser"
 msgstr "User successfully logout!"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-23 12:39+0300\n"
+"POT-Creation-Date: 2021-12-24 12:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,7 +69,7 @@ msgstr "Метка успешно удалена!"
 msgid "CannotDeleteLabel"
 msgstr "Невозможно удалить метку, потому что она используется!"
 
-#: task_manager/mixins.py:27 task_manager/tasks/mixins.py:30
+#: task_manager/mixins.py:28 task_manager/tasks/mixins.py:30
 #: task_manager/tasks/mixins.py:66 task_manager/users/mixins.py:53
 msgid "UserNotAuthentication"
 msgstr "Необходимо авторизоваться на сайте!"
@@ -89,7 +89,7 @@ msgstr "Статус с таким именем уже существует."
 
 #: task_manager/statuses/models.py:34 task_manager/tasks/models.py:33
 #: task_manager/templates/tasks/detail.html:29
-#: task_manager/templates/tasks/index.html:27
+#: task_manager/templates/tasks/index.html:29
 msgid "Status"
 msgstr "Статус"
 
@@ -148,12 +148,12 @@ msgid "TaskDescription"
 msgstr "Описание"
 
 #: task_manager/tasks/models.py:39 task_manager/templates/tasks/detail.html:25
-#: task_manager/templates/tasks/index.html:29
+#: task_manager/templates/tasks/index.html:31
 msgid "TaskExecutor"
 msgstr "Исполнитель"
 
 #: task_manager/tasks/models.py:45 task_manager/templates/tasks/detail.html:21
-#: task_manager/templates/tasks/index.html:28
+#: task_manager/templates/tasks/index.html:30
 msgid "TaskCreator"
 msgstr "Автор"
 
@@ -215,6 +215,7 @@ msgstr "Создание метки"
 #: task_manager/templates/tasks/update.html:8
 #: task_manager/templates/users/create.html:8
 #: task_manager/templates/users/delete.html:8
+#: task_manager/templates/users/detail.html:7
 #: task_manager/templates/users/index.html:7
 #: task_manager/templates/users/update.html:8
 msgid "BreadcrumbHome"
@@ -289,10 +290,12 @@ msgstr "Обновить"
 #: task_manager/templates/layout.html:21
 #: task_manager/templates/users/create.html:9
 #: task_manager/templates/users/delete.html:9
+#: task_manager/templates/users/detail.html:3
+#: task_manager/templates/users/detail.html:8
 #: task_manager/templates/users/index.html:3
 #: task_manager/templates/users/index.html:8
 #: task_manager/templates/users/index.html:12
-#: task_manager/templates/users/update.html:9 task_manager/users/models.py:17
+#: task_manager/templates/users/update.html:9 task_manager/users/models.py:29
 msgid "Users"
 msgstr "Пользователи"
 
@@ -394,38 +397,39 @@ msgid "TaskDetailView"
 msgstr "Просмотр задачи"
 
 #: task_manager/templates/tasks/detail.html:33
-#: task_manager/templates/tasks/index.html:30
+#: task_manager/templates/tasks/index.html:32
+#: task_manager/templates/users/detail.html:27
 #: task_manager/templates/users/index.html:19
 msgid "UserDateReg"
 msgstr "Дата регистрации"
 
-#: task_manager/templates/tasks/detail.html:49
-#: task_manager/templates/tasks/index.html:44
+#: task_manager/templates/tasks/detail.html:46
+#: task_manager/templates/tasks/index.html:46
 msgid "TaskChange"
 msgstr "Изменить"
 
-#: task_manager/templates/tasks/detail.html:50
-#: task_manager/templates/tasks/index.html:45
+#: task_manager/templates/tasks/detail.html:47
+#: task_manager/templates/tasks/index.html:47
 msgid "TaskDelete"
 msgstr "Удалить"
 
-#: task_manager/templates/tasks/index.html:18
+#: task_manager/templates/tasks/index.html:19
 msgid "ButtonFilterActivate"
 msgstr "Показать"
 
-#: task_manager/templates/tasks/index.html:25
+#: task_manager/templates/tasks/index.html:27
 msgid "TaskID"
 msgstr "ID"
 
-#: task_manager/templates/tasks/index.html:26
+#: task_manager/templates/tasks/index.html:28
 msgid "TaskName"
 msgstr "Имя"
 
-#: task_manager/templates/tasks/index.html:31
+#: task_manager/templates/tasks/index.html:33
 msgid "TaskActions"
 msgstr "Действия"
 
-#: task_manager/templates/tasks/index.html:50
+#: task_manager/templates/tasks/index.html:52
 msgid "TaskNotFound"
 msgstr "Задачи не найдены"
 
@@ -459,6 +463,45 @@ msgstr "Удаление пользователя"
 msgid "AreYouSureToDeleteUser"
 msgstr "Вы уверены что хотите удалить пользователя"
 
+#: task_manager/templates/users/detail.html:9
+#: task_manager/templates/users/detail.html:14
+msgid "UserDetailView"
+msgstr "Просмотр пользователя"
+
+#: task_manager/templates/users/detail.html:19
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: task_manager/templates/users/detail.html:23
+msgid "UserFullname"
+msgstr "Полное имя"
+
+#: task_manager/templates/users/detail.html:31
+msgid "UserLastLogin"
+msgstr "Дата последнего входа"
+
+#: task_manager/templates/users/detail.html:35
+msgid "CountTasks"
+msgstr "Количество созданных задач"
+
+#: task_manager/templates/users/detail.html:38
+msgid "CountTaskByUser"
+msgstr "Пользователь является автором"
+
+#: task_manager/templates/users/detail.html:42
+msgid "CountTaskToUser"
+msgstr "Пользователь назначен исполнителем"
+
+#: task_manager/templates/users/detail.html:47
+#: task_manager/templates/users/index.html:31
+msgid "UserChange"
+msgstr "Изменить"
+
+#: task_manager/templates/users/detail.html:48
+#: task_manager/templates/users/index.html:32
+msgid "UserDelete"
+msgstr "Удалить"
+
 #: task_manager/templates/users/index.html:16
 msgid "UserID"
 msgstr "ID"
@@ -475,14 +518,6 @@ msgstr "Полное имя"
 msgid "UserActions"
 msgstr "Действия"
 
-#: task_manager/templates/users/index.html:31
-msgid "UserChange"
-msgstr "Изменить"
-
-#: task_manager/templates/users/index.html:32
-msgid "UserDelete"
-msgstr "Удалить"
-
 #: task_manager/templates/users/index.html:37
 msgid "UserNotFound"
 msgstr "Пользователи не найдены"
@@ -491,7 +526,7 @@ msgstr "Пользователи не найдены"
 #: task_manager/templates/users/login.html:8
 #: task_manager/templates/users/login.html:14
 msgid "LoginUsers"
-msgstr "Вход"
+msgstr "Войти"
 
 #: task_manager/templates/users/update.html:4
 #: task_manager/templates/users/update.html:10
@@ -507,30 +542,30 @@ msgstr "Обновить"
 msgid "ErrorUserNotHaveRights"
 msgstr "У вас нет прав для изменения другого пользователя!"
 
-#: task_manager/users/models.py:16
+#: task_manager/users/models.py:28
 msgid "User"
 msgstr "Пользователь"
 
-#: task_manager/users/views.py:37
+#: task_manager/users/views.py:59
 msgid "SuccessCreateUser"
 msgstr "Пользователь успешно зарегистрирован!"
 
-#: task_manager/users/views.py:53
+#: task_manager/users/views.py:75
 msgid "SuccessUpdateUser"
 msgstr "Данные пользователя успешно обновлены!"
 
-#: task_manager/users/views.py:68
+#: task_manager/users/views.py:90
 msgid "SuccessDeleteUser"
 msgstr "Пользователь успешно удален!"
 
-#: task_manager/users/views.py:89
+#: task_manager/users/views.py:111
 msgid "CannotDeleteUser"
 msgstr "Невозможно удалить пользователя, потому что он используется"
 
-#: task_manager/users/views.py:97
+#: task_manager/users/views.py:119
 msgid "SuccessLoginUser"
 msgstr "Успешный вход!"
 
-#: task_manager/users/views.py:114
+#: task_manager/users/views.py:136
 msgid "SuccessLogoutUser"
 msgstr "Успешный выход. До свидания!"

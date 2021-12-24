@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% load i18n get_filter_url_users_tags %}
+{% block title %}{% translate 'Users' %}{% endblock %}
+
+{% block breadcrumb %}
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"><a href="/">{% translate 'BreadcrumbHome' %}</a></li>
+    <li class="breadcrumb-item" aria-current="page"><a href="{% url 'users' %}">{% translate 'Users' %}</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'detail_user' user.id %}">{% translate 'UserDetailView' %}</a></li>
+  </ol>
+{% endblock breadcrumb %}
+{% block content %}
+    <div class="container mt-5">
+        <h2>{% translate 'UserDetailView' %}</h2>
+        <div class="card border-dark">
+            <h5 class="card-header">{{ user.username }}</h5>
+            <div class="card-body">
+                <div class="row p-1">
+                    <div class="col">{% translate 'Username' %}</div>
+                    <div class="col">{{ user.username }}</div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">{% translate 'UserFullname' %}</div>
+                    <div class="col">{{ user.get_full_name }}</div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">{% translate 'UserDateReg' %}</div>
+                    <div class="col">{{ user.date_joined|date:'d.m.Y H:i' }}</div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">{% translate 'UserLastLogin' %}</div>
+                    <div class="col">{{ user.last_login|date:'d.m.Y H:i' }}</div>
+                </div>
+                <div class="row p-1 pt-3">
+                    <h6 class="col">{% translate 'CountTasks' %}:</h6>
+                </div>
+                <div class="row pl-1">
+                    <a class="col" href="{% filter_url_by_user %}">{% translate 'CountTaskByUser' %}:</a>
+                    <div class="col">{{ count_tasks_by_user }}</div>
+                </div>
+                <div class="row pl-1">
+                    <a class="col" href="{% filter_url_to_user user.id %}">{% translate 'CountTaskToUser' %}:</a>
+                    <div class="col">{{ count_tasks_to_user }}</div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'update_user' user.id %}"><button class="btn btn-outline-info btn-sm m-1">{% translate 'UserChange' %}</button></a>
+                <a href="{% url 'delete_user' user.id %}"><button class="btn btn-outline-danger btn-sm m-1">{% translate 'UserDelete' %}</button></a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

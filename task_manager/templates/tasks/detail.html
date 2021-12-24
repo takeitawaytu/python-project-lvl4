@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% load i18n %}
+{% load i18n get_filter_url_label_tags %}
 {% block title %}{% translate 'Tasks' %}{% endblock %}
 
 {% block breadcrumb %}
@@ -12,7 +12,7 @@
 {% block content %}
     <div class="container mt-5">
         <h2>{% translate 'TaskDetailView' %}</h2>
-        <div class="card">
+        <div class="card border-dark">
             <h5 class="card-header">{{ task.name }}</h5>
             <div class="card-body">
                 <p>{{ task.description|linebreaksbr }}</p>
@@ -36,21 +36,16 @@
                 <div class="row p-1">
                     <div class="container">
                         <h6>{% translate 'Labels' %}:</h6>
-                        <ul>
-                            {% for label in task.labels.all %}
-                                <li>{{ label.name }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-                <hr>
-                <div class="row p-1 mt-1">
-                    <div class="col">
-                        <a href="{% url 'update_task' task.id %}"><button class="btn btn-outline-info btn-sm m-1">{% translate 'TaskChange' %}</button></a>
-                        <a href="{% url 'delete_task' task.id %}"><button class="btn btn-outline-danger btn-sm m-1">{% translate 'TaskDelete' %}</button></a>
+                        {% for label in task.labels.all %}
+                            <a href="{% filter_url label.id %}"><button class="btn btn-outline-secondary btn-sm mr-1 mt-1">{{ label.name }}</button></a>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
+            <div class="card-footer">
+                <a href="{% url 'update_task' task.id %}"><button class="btn btn-outline-info btn-sm m-1">{% translate 'TaskChange' %}</button></a>
+                <a href="{% url 'delete_task' task.id %}"><button class="btn btn-outline-danger btn-sm m-1">{% translate 'TaskDelete' %}</button></a>
+            </div>
         </div>
     </div>
-{% endblock content %} 
+{% endblock content %}

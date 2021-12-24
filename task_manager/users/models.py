@@ -9,6 +9,17 @@ class CustomUser(AbstractUser):
     def get_absolute_url(self):  # noqa: D102
         return reverse_lazy('update_user', kwargs={'pk': self.pk})
 
+    @property
+    def get_entered_name(self) -> str:
+        """
+        Get name if exist full_name or username.
+        Returns:
+            str:
+        """
+        if (not self.first_name) or (not self.last_name):
+            return self.username
+        return self.get_full_name()
+
     class Meta:  # noqa: WPS306
         """Meta information."""
 
