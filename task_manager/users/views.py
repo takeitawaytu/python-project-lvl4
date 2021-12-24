@@ -74,7 +74,7 @@ class UserUpdateView(
     context_object_name = 'user'
     form_class = CustomUserCreationForm
     template_name = 'users/update.html'
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('users')
     success_message = _('SuccessUpdateUser')
     redirect_url = reverse_lazy('users')
 

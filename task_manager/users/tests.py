@@ -155,7 +155,7 @@ class TestUpdateDeleteCase(TestCase):
             path=reverse('update_user', args=[self.user.pk]),
             data=self.users_data['user_update'],
         )
-        self.assertRedirects(response, reverse('login'))
+        self.assertRedirects(response, reverse('users'))
         self.assertEqual(
             self.users_data['user_update']['username'],
             self.user_model.objects.get(pk=self.user.pk).username,

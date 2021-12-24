@@ -440,9 +440,9 @@ class TestStatusCreationForm(TestCaseWithoutRollbar):
     def test_invalid_form(self):
         """Test form is invalid."""
         form_data = (
-            {'name': '', 'status': '1', 'executor': '1'},
-            {'name': 'test', 'status': '', 'executor': '1'},
-            {'name': 'test', 'status': '1', 'executor': ''},
+            {'name': '', 'status': '1'},
+            {'name': 'test', 'status': ''},
+            {'name': 'test', 'status': '1'},
         )
         for data in form_data:
             self.assertFalse(TasksForm(data=data).is_valid())

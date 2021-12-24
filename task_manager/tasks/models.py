@@ -36,6 +36,8 @@ class Tasks(models.Model):
         related_name='executors',
         on_delete=models.PROTECT,
         verbose_name=_('TaskExecutor'),
+        blank=True,
+        null=True,
     )
     creator = models.ForeignKey(
         user,
