@@ -1,0 +1,112 @@
+{
+    "first": {
+        "user": {
+            "username": "user_test1",
+            "first_name": "user",
+            "last_name": "user1",
+            "password": "12345678Aa",
+            "full_name": "user user1"
+        },
+        "status": {
+            "name": "new"
+        },
+        "labels": {
+            "name": "politic"
+        },
+        "task": {
+            "name": "first task",
+            "description": "task",
+            "status": "new",
+            "labels": ["news", "politic"],
+            "executor": "user user1"
+        }
+    },
+    "second": {
+        "user": {
+            "username": "user_test2",
+            "first_name": "user",
+            "last_name": "user2",
+            "password": "12345678Aa",
+            "full_name": "user user2"
+        },
+        "status": {
+            "name": "finish"
+        },
+        "labels": {
+            "name": "news"
+        },
+        "task": {
+            "name": "second task",
+            "description": "task",
+            "status": "updated",
+            "labels": "news",
+            "executor": "user user2"
+        }
+    },
+    "third": {
+        "user": {
+            "username": "user_test3",
+            "first_name": "user",
+            "last_name": "user3",
+            "password": "12345678Aa",
+            "full_name": "user user3"
+        },
+        "status": {
+            "name": "finish"
+        },
+        "labels": {
+            "name": "news"
+        },
+        "task": {
+            "name": "third task",
+            "description": "task",
+            "status": "updated",
+            "labels": "news",
+            "executor": "user user3"
+        }
+    },
+    "fourth": {
+        "user": {
+            "username": "user_test4",
+            "first_name": "user",
+            "last_name": "user4",
+            "password": "12345678Aa",
+            "full_name": "user user4"
+        },
+        "status": {
+            "name": "delete"
+        },
+        "labels": {
+            "name": "delete"
+        },
+        "task": {
+            "name": "fourth task",
+            "description": "task 4",
+            "status": "updated",
+            "labels": "news",
+            "executor": "user user4"
+        }
+    },
+    "five": {
+        "user": {
+            "username": "user_test5",
+            "first_name": "user",
+            "last_name": "user5",
+            "password": "12345678Aa",
+            "full_name": "user user5"
+        },
+        "status": {
+            "name": "delete"
+        },
+        "labels": {
+            "name": "delete"
+        },
+        "task": {
+            "name": "for create",
+            "description": "task 5",
+            "status": "finish",
+            "labels": "news",
+            "executor": "user user3"
+        }
+    }
+}

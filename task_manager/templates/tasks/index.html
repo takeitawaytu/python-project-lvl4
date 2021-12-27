@@ -41,7 +41,7 @@
                 <td><a href="{% url 'detail_task' task.id %}">{{ task.name }}</a></td>
                 <td>{{ task.status }}</td>
                 <td>{{ task.creator }}</td>
-                <td>{{ task.executor }}</td>
+                <td>{{ task.executor|default_if_none:"" }}</td>
                 <td>{{ task.created_at|date:'d.m.Y H:i' }}</td>
                 <td>
                     <a href="{% url 'update_task' task.id %}"><button class="btn btn-outline-info btn-sm mt-1">{% translate 'TaskChange' %}</button></a>

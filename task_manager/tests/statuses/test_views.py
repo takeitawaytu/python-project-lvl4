@@ -1,45 +1,8 @@
 from django.contrib.auth import get_user_model
-from django.core.exceptions import ObjectDoesNotExist
 from django.http.response import HttpResponseBase
 from django.urls import reverse
 from task_manager.mixins import TestCaseWithoutRollbar
-from task_manager.statuses.forms import StatusForm
 from task_manager.statuses.models import Status
-
-
-class TestModelCase(TestCaseWithoutRollbar):
-    """Test model case."""
-
-    @classmethod
-    def setUpTestData(cls):
-        """Setup once test data."""
-        cls.data = {'name': 'test'}
-        cls.model = Status
-
-    def setUp(self) -> None:
-        """Setup always when test executed."""
-        self.model.objects.create(**self.data)
-
-    def test_create(self):
-        """Test check create model."""
-        status = self.model.objects.get(**self.data)
-        self.assertTrue(isinstance(status, self.model))
-        self.assertEqual(self.data['name'], status.name)
-
-    def test_update(self):
-        """Test check update model."""
-        status = self.model.objects.get(**self.data)
-        update_status = 'another_name'
-        status.username = update_status
-        status.save()
-        self.assertEqual(update_status, status.username)
-
-    def test_delete(self):
-        """Test check delete model."""
-        status = self.model.objects.get(**self.data)
-        status.delete()
-        with self.assertRaises(ObjectDoesNotExist):
-            self.model.objects.get(pk=status.id)
 
 
 class TestListViewCase(TestCaseWithoutRollbar):
@@ -250,17 +213,3 @@ class TestUpdateDeleteCase(TestCaseWithoutRollbar):
             reverse('delete_status', args=[self.status.pk]),
         )
         self.assertRedirects(response, reverse('login'))
-
-
-class TestStatusCreationForm(TestCaseWithoutRollbar):
-    """Test form validations."""
-
-    def test_valid_form(self):
-        """Test form is valid."""
-        data = {'name': 'test'}
-        self.assertTrue(StatusForm(data=data).is_valid())
-
-    def test_invalid_form(self):
-        """Test form is invalid."""
-        data = {'name': ''}
-        self.assertFalse(StatusForm(data=data).is_valid())

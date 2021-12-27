@@ -1,0 +1,26 @@
+[
+  {
+    "model": "statuses.status",
+    "pk": 1,
+    "fields": {
+      "name": "new",
+      "created_at": "2021-04-25T08:55:04.483Z"
+    }
+  },
+  {
+    "model": "statuses.status",
+    "pk": 2,
+    "fields": {
+      "name": "finish",
+      "created_at": "2021-04-25T08:55:04.501Z"
+    }
+  },
+  {
+    "model": "statuses.status",
+    "pk": 3,
+    "fields": {
+      "name": "delete",
+      "created_at": "2021-04-25T08:55:04.501Z"
+    }
+  }
+]

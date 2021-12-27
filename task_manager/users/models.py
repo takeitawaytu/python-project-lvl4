@@ -1,4 +1,5 @@
 from django.contrib.auth.models import AbstractUser
+from django.db import models
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
@@ -6,18 +7,30 @@ from django.utils.translation import gettext_lazy as _
 class CustomUser(AbstractUser):
     """Custom user."""
 
+    first_name = models.CharField(
+        _('first name'),
+        max_length=150,
+        error_messages={
+            'blank': _('ThisFieldCannotBeBlank'),
+        },
+    )
+    last_name = models.CharField(
+        _('last name'),
+        max_length=150,
+        error_messages={
+            'blank': _('ThisFieldCannotBeBlank'),
+        },
+    )
+
     def get_absolute_url(self):  # noqa: D102
         return reverse_lazy('update_user', kwargs={'pk': self.pk})
 
-    @property
-    def get_entered_name(self) -> str:
+    def __str__(self) -> str:
         """
-        Get name if exist full_name or username.
+        String representation.
         Returns:
             str:
         """
-        if (not self.first_name) or (not self.last_name):
-            return self.username
         return self.get_full_name()
 
     class Meta:  # noqa: WPS306
