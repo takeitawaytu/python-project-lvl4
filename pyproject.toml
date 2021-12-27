@@ -20,7 +20,6 @@ django-bootstrap4 = "^21.1"
 coverage = "^6.2"
 django-filter = "^21.1"
 rollbar="^0.16.2"
-playwright = "^1.17.2"
 
 [tool.poetry.dev-dependencies]
 coverage = "^6.1.2"

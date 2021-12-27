@@ -21,13 +21,6 @@ requirements: poetry.lock
 test:
 	poetry run python manage.py test
 
-test_headless:
-	poetry run python manage.py test \
-		task_manager.tests.users.test_with_browser.TestBrowserHeadless \
-		task_manager.tests.statuses.test_with_browser.TestBrowserHeadless \
-		task_manager.tests.labels.test_with_browser.TestBrowserHeadless \
-		task_manager.tests.tasks.test_with_browser.TestBrowserHeadless
-
 test-coverage:
 	poetry run coverage run --source='task_manager' manage.py test
 	poetry run coverage xml
